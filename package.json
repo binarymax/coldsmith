@@ -4,6 +4,7 @@
   "author": "Johan Nordberg <code@johan-nordberg.com>",
   "description": "A flexible static site generator.",
   "license": "MIT",
+  "type": "module",
   "main": "./lib/",
   "keywords": [
     "static",
@@ -15,7 +16,6 @@
     "wintersmith": "./bin/wintersmith"
   },
   "scripts": {
-    "prepublishOnly": "node ./bin/dev/compile_coffee",
     "test": "node --test test/*.test.mjs",
     "test:update": "node ./test/update-golden.mjs"
   },

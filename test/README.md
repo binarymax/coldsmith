@@ -22,7 +22,7 @@ The tests find the CLI themselves, in this order:
 
 1. `$WINTERSMITH_CLI`, for diffing two implementations by hand
 2. `bin/wintersmith`, once `src/cli/index.js` exists
-3. `bin/dev/cli`, the CoffeeScript entry point
+3. `bin/dev/cli.cjs`, the CoffeeScript entry point
 
 So the same tests run against both implementations with no edits.
 

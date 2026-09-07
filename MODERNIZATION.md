@@ -244,6 +244,31 @@ output of `decaffeinate` or `coffee -c` into the tree — the async/await rewrit
 is happening simultaneously and the generated code fights it. Compiling a
 single tricky expression with `coffee -c -p` to check semantics is fine.
 
+### The port runs on a hybrid tree
+
+`"type": "module"` was set at the *start* of the port rather than the end,
+because it makes the tree incrementally portable:
+
+- Node resolves `require('./utils')` to `utils.js` before `utils.coffee`, and
+  Node 22's `require(esm)` lets the remaining CoffeeScript destructure named
+  exports out of a ported ESM module.
+- So each file can be ported, its `.coffee` original deleted, and the **golden
+  tests run immediately** against a part-CoffeeScript, part-JavaScript tree.
+
+This gives per-file end-to-end verification instead of one unverifiable
+big-bang at the end. The cost: a ported module must keep a callback signature
+for as long as any CoffeeScript caller remains, which the dual-signature helper
+(`dual()` in `utils.js`) makes cheap — and which the public API needs anyway.
+
+Two things this turned up:
+
+- Extensionless entry points (`bin/dev/cli`) *do* follow the nearest
+  `package.json` `"type"`, so the CoffeeScript dev entry was renamed to
+  `bin/dev/cli.cjs`.
+- Files inside `test/fixtures/site/` needed their own `package.json` declaring
+  `"type": "commonjs"`, which is realistic — a wintersmith site is its own
+  package, and its plugins are CommonJS.
+
 ### ESM module reloading — a real constraint
 
 `Environment#reset()` clears `require.cache` to unload user plugins and views,

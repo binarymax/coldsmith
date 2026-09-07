@@ -7,7 +7,7 @@
  *
  *   1. $WINTERSMITH_CLI, if set (used to diff two implementations by hand)
  *   2. bin/wintersmith, once src/cli/index.js exists
- *   3. bin/dev/cli, the CoffeeScript entry point
+ *   3. bin/dev/cli.cjs, the CoffeeScript entry point
  */
 
 import { spawn } from 'node:child_process'
@@ -26,7 +26,7 @@ export function resolveCli() {
   if (existsSync(path.join(repoRoot, 'src', 'cli', 'index.js'))) {
     return path.join(repoRoot, 'bin', 'wintersmith')
   }
-  return path.join(repoRoot, 'bin', 'dev', 'cli')
+  return path.join(repoRoot, 'bin', 'dev', 'cli.cjs')
 }
 
 export function run(args, { cwd = repoRoot } = {}) {
