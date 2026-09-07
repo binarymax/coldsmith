@@ -5,13 +5,13 @@
     "text": true
   },
   "articles/another-test/index.html": {
-    "sha256": "0232b95843433d052e2ac58cdbb80a8d14dd2557fce347abde8e3053886528dc",
-    "bytes": 7671,
+    "sha256": "643927586b5d94534f34baad614744cb7b60b482b7d604c8a23ae2a8efd210a2",
+    "bytes": 7569,
     "text": true
   },
   "articles/bamboo-cutter/index.html": {
-    "sha256": "30eaa3cbd629edf0f0e74ee77bd89c5eff0f3feec40a74c48a4327b3a3749a31",
-    "bytes": 35961,
+    "sha256": "61938c77eb851af6eb021db4989b43f53e509880ffbdfb10711409195e27fffa",
+    "bytes": 36365,
     "text": true
   },
   "articles/bamboo-cutter/taketori_monogatari.jpg": {
@@ -19,13 +19,13 @@
     "bytes": 388600
   },
   "articles/hello-world/index.html": {
-    "sha256": "e2cbca8335458fd60602e5b556690e348b3e3be43c016c79d5b279b5c194236b",
-    "bytes": 5537,
+    "sha256": "ad76fa9820d787176ffdfb5a99b457337266f0ecf0f0d50b7f1914b2f4f96273",
+    "bytes": 5690,
     "text": true
   },
   "articles/markdown-syntax/index.html": {
-    "sha256": "a0350dc5b0e317c45b9f60da6f9efecafa594c0a65034d9f930d7b3f486fb6ea",
-    "bytes": 39112,
+    "sha256": "a8c6a191c0bb5e537b099d70d840b1debc641882837f2f854886dea05108c19c",
+    "bytes": 39708,
     "text": true
   },
   "articles/red-herring/banana.png": {
@@ -33,8 +33,8 @@
     "bytes": 327896
   },
   "articles/red-herring/index.html": {
-    "sha256": "177c0986e3d8097825cdc3cdbe2a196ada9c6584b02a423597257d6886f06e89",
-    "bytes": 3362,
+    "sha256": "0425f5942a12a9a2e7fe97dfcba1f1dc368d93f265617d2bac7788750603250c",
+    "bytes": 3440,
     "text": true
   },
   "css/main.css": {
@@ -43,18 +43,18 @@
     "text": true
   },
   "feed.xml": {
-    "sha256": "d451dc85e2fc8f19083e378cefa8eee63029b5da1c3013fc73e1f8ac04473b42",
-    "bytes": 87397,
+    "sha256": "77695e6b3b8c8cf239046277a36c21df04137f4fcd8b05e5d57170b09022bf65",
+    "bytes": 89072,
     "text": true
   },
   "index.html": {
-    "sha256": "5c615fcaea9fbdd565de720846ac1e7b7eb4cdb4e6429a9d178ad8feffcae65c",
-    "bytes": 3902,
+    "sha256": "84128bacc19404b731ab634fe591403a0d602539bbdb55bd423a16ef4f169602",
+    "bytes": 3926,
     "text": true
   },
   "page/2/index.html": {
-    "sha256": "d3ac38210a2f972addb00a876a0e4525e20f53ba3ec50c07377bbfd3f6f4b020",
-    "bytes": 3764,
+    "sha256": "9941efeb4af24565ca6f3a07072f57e97fb8f198bbb8ab0fda40ff0b31e2d34d",
+    "bytes": 3770,
     "text": true
   }
 }

@@ -25,80 +25,80 @@
 The theme used is tomorrow, you can find more themes <a href="http://jmblog.github.io/color-themes-for-highlightjs/">here</a>.</p>
 <p><span class="more"></span></p>
 <h3 id="javascript">JavaScript</h3>
-<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">getRandomNumber</span>(<span class="params"></span>) </span>{
+<pre><code class="language-javascript"><span class="keyword">function</span> <span class="title function_">getRandomNumber</span>(<span class="params"></span>) {
     <span class="keyword">return</span> <span class="number">4</span>; <span class="comment">// chosen by fair dice roll.</span>
               <span class="comment">// guaranteed to be random.</span>
-}</code></pre>
-<h3 id="coffeescript">CoffeeScript</h3>
-<pre><code class="language-coffeescript"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>
+}
+</code></pre><h3 id="coffeescript">CoffeeScript</h3>
+<pre><code class="language-coffeescript"><span class="keyword">class</span> <span class="title class_">Animal</span>
   <span class="comment">### Intellegent design ###</span>
   getDNA: <span class="function">-&gt;</span>
-    <span class="built_in">print</span> <span class="string">'sequencing...'</span>
+    <span class="built_in">print</span> <span class="string">&#x27;sequencing...&#x27;</span>
     <span class="keyword">while</span> <span class="literal">true</span>
       sleep <span class="number">1</span>
 
-<span class="class"><span class="keyword">class</span> <span class="title">Monkey</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>
+<span class="keyword">class</span> <span class="title class_">Monkey</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Animal</span>
   speak: <span class="function">-&gt;</span>
-    <span class="built_in">print</span> <span class="string">'ah ah ah'</span>
+    <span class="built_in">print</span> <span class="string">&#x27;ah ah ah&#x27;</span>
 
-<span class="class"><span class="keyword">class</span> <span class="title">Human</span> <span class="keyword">extends</span> <span class="title">Monkey</span></span>
+<span class="keyword">class</span> <span class="title class_">Human</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Monkey</span>
   speak: <span class="function">-&gt;</span>
-    <span class="built_in">print</span> [<span class="string">'yolo'</span> <span class="keyword">unless</span> i % <span class="number">3</span>] + [<span class="string">'swag'</span> <span class="keyword">unless</span> i % <span class="number">5</span>] <span class="keyword">or</span> i <span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">1.</span><span class="number">.100</span>]</code></pre>
-<h3 id="c">C</h3>
-<pre><code class="language-c"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span>
+    <span class="built_in">print</span> [<span class="string">&#x27;yolo&#x27;</span> <span class="keyword">unless</span> i % <span class="number">3</span>] + [<span class="string">&#x27;swag&#x27;</span> <span class="keyword">unless</span> i % <span class="number">5</span>] <span class="keyword">or</span> i <span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">1.</span><span class="number">.100</span>]
+</code></pre><h3 id="c">C</h3>
+<pre><code class="language-c"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span>
 
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>
-</span>{
-  <span class="built_in">printf</span>(<span class="string">"Hello world\n"</span>);
+<span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span>
+{
+  <span class="built_in">printf</span>(<span class="string">&quot;Hello world\n&quot;</span>);
   <span class="keyword">return</span> <span class="number">0</span>;
-}</code></pre>
-<h3 id="c-">C++</h3>
-<pre><code class="language-cpp"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span>
+}
+</code></pre><h3 id="c-1">C++</h3>
+<pre><code class="language-cpp"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span>
 
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
+<span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span>
 </span>{
-  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World!"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;
+  std::cout &lt;&lt; <span class="string">&quot;Hello World!&quot;</span> &lt;&lt; std::endl;
   <span class="keyword">return</span> <span class="number">0</span>;
-}</code></pre>
-<h3 id="c-sharp">C-sharp</h3>
+}
+</code></pre><h3 id="c-sharp">C-sharp</h3>
 <pre><code class="language-cs"><span class="keyword">class</span> <span class="title">ExampleClass</span>
 {
-    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span>
+    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span>
     {
-        System.Console.WriteLine(<span class="string">"Hello, world!"</span>);
+        System.Console.WriteLine(<span class="string">&quot;Hello, world!&quot;</span>);
     }
-}</code></pre>
-<h3 id="erlang">Erlang</h3>
-<pre><code class="language-erlang">io:format(<span class="string">"~s~n"</span>, [<span class="string">"hello, world"</span>])</code></pre>
-<h3 id="go">Go</h3>
+}
+</code></pre><h3 id="erlang">Erlang</h3>
+<pre><code class="language-erlang">io:format(<span class="string">&quot;~s~n&quot;</span>, [<span class="string">&quot;hello, world&quot;</span>])
+</code></pre><h3 id="go">Go</h3>
 <pre><code class="language-go"><span class="keyword">package</span> main
 
-<span class="keyword">import</span> <span class="string">"fmt"</span>
+<span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span>
 
 <span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {
-   fmt.Println(<span class="string">"Hello World!"</span>)
-}</code></pre>
-<h3 id="java">Java</h3>
-<pre><code class="language-java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>{
-   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
-       System.out.println(<span class="string">"Hello world!"</span>);
+   fmt.Println(<span class="string">&quot;Hello World!&quot;</span>)
+}
+</code></pre><h3 id="java">Java</h3>
+<pre><code class="language-java"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> {
+   <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {
+       System.out.println(<span class="string">&quot;Hello world!&quot;</span>);
    }
-}</code></pre>
-<h3 id="objectivec">ObjectiveC</h3>
-<pre><code class="language-objectivec"><span class="meta">#import <span class="meta-string">&lt;stdio.h&gt;</span></span>
+}
+</code></pre><h3 id="objectivec">ObjectiveC</h3>
+<pre><code class="language-objectivec"><span class="meta">#import <span class="string">&lt;stdio.h&gt;</span></span>
 
-<span class="keyword">int</span> main(<span class="keyword">void</span>)
+<span class="type">int</span> main(<span class="type">void</span>)
 {
-    printf(<span class="string">"Hello, World!\n"</span>);
+    printf(<span class="string">&quot;Hello, World!\n&quot;</span>);
     <span class="keyword">return</span> <span class="number">0</span>;
-}</code></pre>
-<h3 id="php"><span class="caps">PHP</span></h3>
-<pre><code class="language-php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">'Hello, world'</span>; <span class="meta">?&gt;</span></code></pre>
-<h3 id="python">Python</h3>
-<pre><code class="language-python">print(<span class="string">"Hello World"</span>)</code></pre>
-<h3 id="ruby">Ruby</h3>
-<pre><code class="language-ruby">puts <span class="string">"Hello world!"</span></code></pre>
-</section>
+}
+</code></pre><h3 id="php"><span class="caps">PHP</span></h3>
+<pre><code class="language-php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">&#x27;Hello, world&#x27;</span>; <span class="meta">?&gt;</span>
+</code></pre><h3 id="python">Python</h3>
+<pre><code class="language-python"><span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)
+</code></pre><h3 id="ruby">Ruby</h3>
+<pre><code class="language-ruby">puts <span class="string">&quot;Hello world!&quot;</span>
+</code></pre></section>
         </article>
       </div>
     </div>
