@@ -16,7 +16,7 @@ module.exports = function (env, callback) {
   // An ES class extending the CoffeeScript-era Page base class.
   class ShoutPage extends env.plugins.Page {
     constructor(filepath, text) {
-      super(filepath, { template: 'page.pug', title: 'A shout' })
+      super(filepath, { template: 'page.ejs', title: 'A shout' })
       this.text = text
     }
 
@@ -55,9 +55,9 @@ module.exports = function (env, callback) {
     getView() {
       var page = this
       return function (env, locals, contents, templates, callback) {
-        var template = templates['list.pug']
+        var template = templates['list.ejs']
         if (!template) {
-          callback(new Error("missing template 'list.pug'"))
+          callback(new Error("missing template 'list.ejs'"))
           return
         }
         var ctx = { page: page, names: page.names }

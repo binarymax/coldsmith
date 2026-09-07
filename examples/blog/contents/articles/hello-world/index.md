@@ -2,7 +2,7 @@
 title: README
 author: the-coldsmith
 date: 2013-04-30
-template: article.pug
+template: article.ejs
 ---
 
 Welcome to your new blog! This is the default blog template with RSS, pagination and an archive. There are other templates available -- run `coldsmith new --help` to list them.
@@ -29,26 +29,29 @@ Good, now, the directory structure of your blog is as follows:
 │   │   └── red-herring
 │   │       ├── banana.png
 │   │       └── index.md
-│   ├── authors               <- author metadata, check author.pug
+│   ├── authors               <- author metadata, check _author.ejs
 │   │   ├── baker.json
 │   │   └── the-coldsmith.json
 │   ├── css
 │   │   └── main.css
 │   └── feed.json
 ├── plugins
-│   └── paginator.coffee      <- paginator plugin
-├── templates
-│   ├── archive.pug
-│   ├── article.pug
-│   ├── author.pug
-│   ├── feed.pug
-│   ├── index.pug
-│   └── layout.pug
-└── views
-    └── articles.coffee       <- view that lists articles
+│   └── paginator.js          <- paginator plugin
+└── templates
+    ├── _article-header.ejs
+    ├── _article-nav.ejs
+    ├── _author.ejs           <- partials are prefixed with an underscore
+    ├── _foot.ejs
+    ├── _head.ejs             <- _head and _foot are the site layout
+    ├── _index-nav.ejs
+    ├── _site-header.ejs
+    ├── archive.ejs
+    ├── article.ejs
+    ├── feed.ejs
+    └── index.ejs
 ```
 
-Articles are sorted by date and 3 are shown per page, you can configure this and more in config.json. Check paginator.coffee for all options related to pagination, most plugins also have their own options.
+Articles are sorted by date and 3 are shown per page, you can configure this and more in config.json. Check paginator.js for all options related to pagination, most plugins also have their own options.
 
 ### A typical article
 

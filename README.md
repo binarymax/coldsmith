@@ -2,13 +2,14 @@
 
 Coldsmith is a simple yet flexible static site generator. It takes contents (markdown, less, scripts, etc), transforms them using plugins and outputs a static website (html, css, images, etc) that you can host anywhere.
 
-It ships with plugins for [markdown](http://daringfireball.net/projects/markdown/) and [pug templates](https://github.com/pugjs/pug), if you need something else check the [plugin listing][plugin-listing] or [write your own][plugin-guide]!
+It ships with plugins for [markdown](http://daringfireball.net/projects/markdown/) and [EJS templates](https://ejs.co/), if you need something else check the [plugin listing][plugin-listing] or [write your own][plugin-guide]!
 
 ## Resources
 
 - [Changelog](CHANGES.md) — including how to migrate from wintersmith
 - [Wintersmith wiki][wiki] — inherited documentation; still accurate for the
-  plugin API, the content tree and filename templating
+  plugin API, the content tree and filename templating. Its template examples
+  are pug, which coldsmith replaced with EJS — see [CHANGES.md](CHANGES.md).
 
 [wiki]: https://github.com/jnordberg/wintersmith/wiki 'Wintersmith wiki'
 [plugin-listing]: https://github.com/jnordberg/wintersmith/wiki/Plugins 'Wintersmith plugin listing'
@@ -75,7 +76,7 @@ Coldsmith comes with a default Page plugin that renders markdown content using t
 
 This brings us to the second component, the template directory. All templates found in this directory are loaded and are also passed to the content plugins when rendering.
 
-By default only `.pug` templates are loaded, but you can easily add template plugins to use a template engine of your choosing.
+By default only `.ejs` templates are loaded, but you can easily add template plugins to use a template engine of your choosing.
 
 Check the `examples/` directory for some inspiration on how you can use coldsmith.
 
@@ -143,7 +144,7 @@ A MarkdownPage is either a markdown file with metadata on top or a json file loc
 title: My first post
 date: 2012-12-12 12:12
 author: John Hjort <foo@bar.com>
-template: article.pug
+template: article.ejs
 ---
 
 -
@@ -157,7 +158,7 @@ or use json to simply pass metadata to a template:
 
 ```json
 {
-  "template": "template.pug",
+  "template": "template.ejs",
   "stuff": {
     "things": 123,
     "moar": [1, 2, 3]

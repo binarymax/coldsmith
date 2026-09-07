@@ -402,4 +402,4 @@ Environment.create = function (config, workDir, log = defaultLogger) {
   return new Environment(config, workDir, log)
 }
 
-Environment.defaultPlugins = ['page', 'pug', 'markdown']
+Environment.defaultPlugins = ['page', 'ejs', 'markdown']

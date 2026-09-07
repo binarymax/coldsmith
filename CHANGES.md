@@ -33,6 +33,27 @@ _Relative to wintersmith 2.5.0._
 - **Node 20.11+ required**, and the package is **ESM only**.
   `require('wintersmith')` no longer works; use
   `import coldsmith from 'coldsmith'`. The CLI is unaffected.
+- **The bundled template language is EJS, not pug.** `src/plugins/pug.js` is
+  gone, `.pug` and `.jade` files are no longer claimed by any default plugin,
+  and `Environment.defaultPlugins` now loads `ejs` in pug's place. Templates
+  are `.ejs`, configured under the `ejs` key in `config.json` (the `pug` key
+  does nothing). To keep a pug site building, install `pug` yourself and add a
+  three-line template plugin that calls `env.registerTemplatePlugin`, or use
+  one of the published template plugins.
+
+  Porting templates is mostly mechanical, with one exception: **EJS has no
+  equivalent of pug's `extends`/`block` inheritance.** Build layouts out of
+  partials instead — split the layout into a `_head`/`_foot` pair and pass the
+  parts a page used to override in as locals. `include('name')` is an
+  expression that returns the rendered partial as a string, so a block
+  override becomes `include('_head', { header: include('_article-header') })`.
+  The blog example is a worked conversion of a layout that used `block`,
+  `block prepend`, `block append` and a mixin.
+
+  Rendered markup differs even where templates are equivalent: pug controlled
+  its own indentation, EJS emits exactly what you write, and EJS escapes `'`
+  and `"` as `&#39;`/`&#34;` where pug left `'` alone.
+
 - **CoffeeScript support is removed.** Plugins, views and config files written
   in CoffeeScript no longer load; convert them to JavaScript, or compile them
   first. Loading a `.coffee` file now fails with a message saying so. (Plugins
@@ -51,8 +72,8 @@ _Relative to wintersmith 2.5.0._
   highlighted code. Restyling may be needed if you targeted highlight.js 9
   class names. Heading slugs are GitHub-compatible now, which drops a trailing
   dash on headings ending in punctuation.
-- **Third-party plugins that subclass `MarkdownPage`, `JsonPage` or
-  `PugTemplate`** and were compiled by CoffeeScript 1.x will need updating.
+- **Third-party plugins that subclass `MarkdownPage` or `JsonPage`** and were
+  compiled by CoffeeScript 1.x will need updating.
   `ContentPlugin`, `StaticFile`, `TemplatePlugin` and `Page` — the documented
   base classes, and the ones essentially every plugin extends — are
   unaffected and still work with CoffeeScript 1.x inheritance.
@@ -90,8 +111,8 @@ _Relative to wintersmith 2.5.0._
 - Dependencies: `async`, `mkdirp`, `rimraf`, `ncp`, `server-destroy`,
   `winston`, `npm` and `coffee-script` are all gone, replaced by Node built-ins
   or a small amount of local code. chalk 2 → 6, chokidar 2 → 5, mime 2 → 4,
-  minimatch 3 → 10, pug 2 → 3, js-yaml 3 → 5, highlight.js 9 → 11,
-  marked 0.5 → 18.
+  minimatch 3 → 10, js-yaml 3 → 5, highlight.js 9 → 11, marked 0.5 → 18.
+  `pug` is replaced by `ejs` 6.
 - Markdown link resolution no longer monkeypatches marked's inline lexer, and
   each page is parsed with its own marked instance rather than mutating
   process-global options.

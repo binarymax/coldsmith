@@ -9,7 +9,7 @@
 
 module.exports = function (env, callback) {
   const options = {
-    template: 'index.pug', // Template that renders the pages.
+    template: 'index.ejs', // Template that renders the pages.
     articles: 'articles', // Directory containing the contents to paginate.
     first: 'index.html', // Filename and url for the first page.
     filename: 'page/%d/index.html', // Filename for the rest.

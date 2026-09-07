@@ -60,9 +60,16 @@ it keeps the tree in memory, watches for changes with chokidar, and re-runs
 generators on _every request_. Changing generator or view semantics means
 checking both paths.
 
-`src/plugins/{page,pug,markdown}.js` are ordinary plugins, listed in
+`src/plugins/{page,ejs,markdown}.js` are ordinary plugins, listed in
 `Environment.defaultPlugins`. They have no privileged access — a third-party
 plugin can do everything they do.
+
+The bundled template language is **EJS**, not pug — wintersmith used pug and
+coldsmith 1.0.0 replaced it. EJS has no equivalent of pug's `extends`/`block`
+inheritance, so the example sites build layouts out of partials instead: a
+`_head.ejs`/`_foot.ejs` pair with the varying pieces passed in as locals. See
+`examples/blog/templates/`. The underscore prefix is convention only; every
+`.ejs` file in the templates directory is loaded as a template.
 
 ## Invariants that will bite you
 
@@ -75,7 +82,7 @@ was compiled by CoffeeScript 1.x, whose inheritance helper calls the parent
 constructor as a plain function (`Page.apply(this, arguments)`). An ES class
 throws `TypeError: Class constructor cannot be invoked without 'new'` there.
 Converting these to `class` silently breaks the entire third-party ecosystem.
-Concrete subclasses (`MarkdownPage`, `PugTemplate`, …) are normal ES classes.
+Concrete subclasses (`MarkdownPage`, `EjsTemplate`, …) are normal ES classes.
 
 **2. `ContentTree` must never use public class fields.** Its internals
 (`_`, `filename`, `parent`, `index`, `__groupNames`) are private fields behind
@@ -127,9 +134,12 @@ Consequences worth internalising:
   and carry backslashes into output, so the comparison would only measure the
   separator.
 - Re-baseline with `npm run test:update` **only** when output changed on
-  purpose, and read the resulting `git diff`. It has been re-baselined twice
-  ever: once for the marked/highlight.js upgrades, once for the coldsmith
-  rebrand.
+  purpose, and read the resulting `git diff`. It has been re-baselined three
+  times ever: once for the marked/highlight.js upgrades, once for the
+  coldsmith rebrand, once for the pug → EJS switch. Note what the webapp
+  snapshot did on that last one — it is built by third-party plugins and did
+  not move a byte, which is how the switch was confirmed not to have touched
+  the plugin API.
 
 ## Compatibility with wintersmith
 

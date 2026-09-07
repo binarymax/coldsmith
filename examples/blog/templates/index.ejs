@@ -1,0 +1,18 @@
+<%- include('_head') -%>
+<% articles.forEach(function (article) { -%>
+        <article class="article intro">
+          <header>
+            <p class="date"><span><%= moment.utc(article.date).format('DD. MMMM YYYY') %></span></p>
+            <h2><a href="<%= article.url %>"><%= article.title %></a></h2>
+          </header>
+          <section class="content">
+<% if (article.intro.length > 0) { -%>
+            <%- typogr(article.intro).typogrify() %>
+<% } -%>
+<% if (article.hasMore) { -%>
+            <p class="more"><a href="<%= article.url %>">more</a></p>
+<% } -%>
+          </section>
+        </article>
+<% }) -%>
+<%- include('_foot', { nav: include('_index-nav') }) -%>

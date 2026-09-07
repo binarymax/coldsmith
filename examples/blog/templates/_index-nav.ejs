@@ -1,0 +1,10 @@
+        <div class="nav">
+<% if (prevPage) { -%>
+          <a href="<%= prevPage.url %>">&laquo; Newer</a>
+<% } else { -%>
+          <a href="/archive.html">&laquo; Archives</a>
+<% } -%>
+<% if (nextPage) { -%>
+          <a href="<%= nextPage.url %>">Next page &raquo;</a>
+<% } -%>
+        </div>

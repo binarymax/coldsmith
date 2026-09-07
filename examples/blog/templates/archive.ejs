@@ -1,0 +1,52 @@
+<%- include('_head') -%>
+<%# this logic should be moved to a view at some point -%>
+<%
+  const lineHeight = 2.2
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December',
+  ]
+
+  const archives = _.chain(env.helpers.getArticles(contents))
+    .groupBy(function (item) { return item.date.getFullYear() })
+    .value()
+  for (const year in archives) {
+    archives[year] = _.groupBy(archives[year], function (item) {
+      return item.date.getMonth()
+    })
+  }
+  const years = _.chain(archives).keys().reverse().value()
+-%>
+        <section class="archive">
+          <h2>Archive</h2>
+          <ul>
+<% years.forEach(function (year) {
+     const months = archives[year]
+     const yearHeight = lineHeight * _.reduce(months, function (memo, month) {
+       return memo + month.length
+     }, 0)
+     const monthKeys = _.chain(months).keys().reverse().value()
+-%>
+            <li>
+              <span class="year-label" style="line-height:<%= yearHeight %>em"><%= year %></span>
+              <ul style="margin-left:4em">
+<% monthKeys.forEach(function (month) {
+     const monthHeight = lineHeight * months[month].length
+-%>
+                <li>
+                  <span class="month-label" style="line-height:<%= monthHeight %>em"><%= monthNames[month] %></span>
+                  <ul style="margin-left:7em">
+<% months[month].forEach(function (item) { -%>
+                    <li style="height:<%= lineHeight %>em;line-height:<%= lineHeight %>em">
+                      <a href="<%= item.url %>"><%= item.title %></a>
+                    </li>
+<% }) -%>
+                  </ul>
+                </li>
+<% }) -%>
+              </ul>
+            </li>
+<% }) -%>
+          </ul>
+        </section>
+<%- include('_foot') -%>

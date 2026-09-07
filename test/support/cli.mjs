@@ -27,7 +27,7 @@ export function run(args, { cwd = repoRoot } = {}) {
       cwd,
       env: {
         ...process.env,
-        // rfc822date() formats in local time, and pug templates may format
+        // rfc822date() formats in local time, and templates may format
         // dates too. Without a fixed zone the golden output depends on where
         // the test happens to run.
         TZ: 'UTC',

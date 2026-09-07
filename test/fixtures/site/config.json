@@ -8,7 +8,7 @@
     "helpers": "./lib/helpers.js"
   },
   "views": "./views",
-  "defaultTemplate": "page.pug",
+  "defaultTemplate": "page.ejs",
   "ignore": ["*.tmp", "secret", "**/*.draft.md"],
   "baseUrl": "/",
   "markdown": {},

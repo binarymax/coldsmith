@@ -1,0 +1,9 @@
+<%- include('_head', {
+      bodyclass: 'article-detail',
+      pageTitle: page.title + ' - ' + locals.name,
+      header: include('_article-header'),
+    }) -%>
+        <article class="article">
+          <section class="content"><%- typogr(page.html).typogrify() %></section>
+        </article>
+<%- include('_foot', { nav: include('_article-nav') }) -%>

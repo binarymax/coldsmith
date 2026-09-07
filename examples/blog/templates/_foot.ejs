@@ -1,0 +1,23 @@
+<%#
+  Bottom half of the site layout - see `_head`. Takes one optional local:
+
+    nav  markup inserted above the footer, for prev/next style links
+-%>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+<% if (typeof nav !== 'undefined') { -%>
+<%- nav -%>
+<% } -%>
+        <section class="about">
+          <%- contents['about.md'].html %>
+        </section>
+        <section class="copy">
+          <p>&copy; <%= new Date().getFullYear() %> <%= locals.owner %> &mdash; powered by&nbsp;<a href="https://github.com/binarymax/coldsmith">Coldsmith</a></p>
+<%# please leave the "powered by" if you use the design -%>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>

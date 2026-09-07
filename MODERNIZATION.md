@@ -11,6 +11,13 @@
 > expected to be unsalvageable and slated for deletion. It builds fine on the
 > port, third-party plugins and all, so it was kept and promoted into the test
 > suite as the plugin-compatibility check.
+>
+> One open question at the bottom of this document — "Pug's future", deferred
+> as not a 3.0 concern — was settled shortly after 1.0.0: pug was replaced by
+> EJS. The claim made here, that the template plugin interface makes swapping
+> the engine a small change, held up. The plugin is the same shape as the pug
+> one it replaced and the webapp golden snapshot did not move a byte; the cost
+> was all in the example templates, because EJS has no `extends`/`block`.
 
 Convert Wintersmith from CoffeeScript 1.x to modern JavaScript and bring the
 dependency set back to life, without orphaning the existing plugin ecosystem.

@@ -56,8 +56,8 @@ different token class names. Any other change in that diff is a bug.
 | A JSON page                                                                                       | `contents/data.json`                                     |
 | A user plugin registering a content plugin, a generator, and a helper                             | `plugins/shout.js`                                       |
 | Modules loaded through `require` — builtin and site-relative                                      | `config.json`, `lib/helpers.js`                          |
-| Content groups and tree enumerability                                                             | `templates/list.pug`                                     |
-| `page.intro` / `page.hasMore` cutoffs                                                             | `templates/page.pug`                                     |
+| Content groups and tree enumerability                                                             | `templates/list.ejs`                                     |
+| `page.intro` / `page.hasMore` cutoffs                                                             | `templates/page.ejs`                                     |
 | Syntax highlighting                                                                               | `contents/index.md`                                      |
 
 `plugins/shout.js` is deliberately CommonJS with callback signatures, because

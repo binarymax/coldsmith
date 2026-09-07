@@ -1,17 +1,17 @@
 {
   "1999-hello-world-friends.html": {
-    "sha256": "daa3498d6636d2bc4d75a0b10f8c838bbab60b311a59a9b79df8979b70b7ca51",
-    "bytes": 614,
+    "sha256": "e288516ac707ccd1ce87a962f5c6e7cbd609771542def9ab43a42e64978f7cca",
+    "bytes": 698,
     "text": true
   },
   "2001/02/03/index.html": {
-    "sha256": "79851f229e06bcd6a2f63f5719b245fba4807923caaa9493788d818a922b8097",
-    "bytes": 702,
+    "sha256": "942b708ee2574d45aadce284e91f89788210d9c2455f2baecb0b07bf0f47cd33",
+    "bytes": 786,
     "text": true
   },
   "cat/felines/out.html": {
-    "sha256": "b17c176c1428418a1c28089a76f65e0861ad5339b610b01161036029ad986567",
-    "bytes": 762,
+    "sha256": "d2ffd5a17578913fd4474041f6fc453193ad43fa2ae4c3c2d6450857140b3f74",
+    "bytes": 846,
     "text": true
   },
   "custom-view.html": {
@@ -20,13 +20,13 @@
     "text": true
   },
   "data.html": {
-    "sha256": "b0fdad57e78ac983f9d1061b2ca496b8b201d8614018bd017e4bd91e02dac3e6",
-    "bytes": 570,
+    "sha256": "9103171c1df22eec31e33aed277a9355791248fade45996c9baf85554a6f0f79",
+    "bytes": 654,
     "text": true
   },
   "generated/index.html": {
-    "sha256": "dfb0e09acc0ee29fe8969be63cc90b94214c9e8df6b6ffee7de871dd3b034e5a",
-    "bytes": 611,
+    "sha256": "a7a1fba94499abafb93066ad6fa9b9f08957fb7fc15d92be82fc5ad96b581f39",
+    "bytes": 797,
     "text": true
   },
   "image.png": {
@@ -34,23 +34,23 @@
     "bytes": 89
   },
   "index.html": {
-    "sha256": "6620bd96865a820a9564a33285f0e2497febbc7ba4d21222b80b548c8776946c",
-    "bytes": 2148,
+    "sha256": "169437a3f8168491308232eeedb37a0525ecc7f625c082c75f21e3929b05cf8b",
+    "bytes": 2232,
     "text": true
   },
   "loud.html": {
-    "sha256": "f0d6065ee24eec5c4a416108fafaa151275ee87e04d2e5734ed04471461db468",
-    "bytes": 588,
+    "sha256": "f611b4a43000426a3ce89f1c2a5714e9dda06c603724ffffaa0c022fdd024ec5",
+    "bytes": 672,
     "text": true
   },
   "pages/deep/note.html": {
-    "sha256": "dd5f3bf54e89637b52c6761cf118de7123febf9491ea79a326db18c7c7d88777",
-    "bytes": 1019,
+    "sha256": "b33b9f5df40299eaa8f5cde7f072344d72fd263ff2b5671e1456b9e93f93ba6e",
+    "bytes": 1103,
     "text": true
   },
   "pages/index.html": {
-    "sha256": "09bc22c69aeef9450c05c1b92af4d0f05f6a9b040ac36e91ef00b28d18d3816b",
-    "bytes": 698,
+    "sha256": "9a6e136ddbd2e7fe3e47ccaec2be2c8ef1c34d0435f2258172b86242374b4631",
+    "bytes": 782,
     "text": true
   },
   "static.txt": {
@@ -59,13 +59,13 @@
     "text": true
   },
   "winter-matter.html": {
-    "sha256": "bccee634827ca32232901d7c467fd9e64751ab01a73fb8b1eaeaf4c790d7c8d2",
-    "bytes": 728,
+    "sha256": "5dda2a30712e642027ab9342baa0f70114f77ab7d83b0a6c490abd36e7fdb0d7",
+    "bytes": 812,
     "text": true
   },
   "yaml-date.html": {
-    "sha256": "b233648c2169029fe7cbe00e615e09f22b4e97c788f0c83fa14dbbe95a7ceb26",
-    "bytes": 862,
+    "sha256": "364878940f54e12c7a897a57717fcaf708e6e02d8a26ba4387ff5b1ef4195d47",
+    "bytes": 946,
     "text": true
   }
 }

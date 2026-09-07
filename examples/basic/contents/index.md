@@ -1,6 +1,6 @@
 ---
 title: Coldsmith
-template: index.pug
+template: index.ejs
 ---
 
 

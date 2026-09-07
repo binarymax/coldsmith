@@ -1,0 +1,11 @@
+<%- include('_head') -%>
+    <article>
+      <h1><%= page.title %></h1>
+      <p class="meta">filename: <%= page.filename %></p>
+      <p class="meta">url: <%= page.url %></p>
+      <p class="meta">date: <%= page.rfc822date %></p>
+      <p class="meta">hasMore: <%= page.hasMore %></p>
+      <section class="intro"><%- page.intro %></section>
+      <section class="body"><%- page.html %></section>
+    </article>
+<%- include('_foot') -%>

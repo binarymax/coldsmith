@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <title>README - The Coldsmith's blog
-    </title>
+    <title>README - The Coldsmith&#39;s blog</title>
     <link rel="alternate" href="http://localhost:8080/feed.xml" type="application/rss+xml" title="Ramblings of an immor(t)al demigod">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
     <link rel="stylesheet" href="/css/main.css">
@@ -14,8 +13,7 @@
     <header class="header">
       <div class="content-wrap">
         <h1>README</h1>
-        <p class="author">Written by <span class="author"><a href="mailto:the@coldsmith.example">The Coldsmith</a></span>
-        </p>
+        <p class="author">Written by <span class="author"><a href="mailto:the@coldsmith.example">The Coldsmith</a></span></p>
       </div>
     </header>
     <div id="content">
@@ -41,24 +39,27 @@
 │   │   └── red-herring
 │   │       ├── banana.png
 │   │       └── index.md
-│   ├── authors               &lt;- author metadata, check author.pug
+│   ├── authors               &lt;- author metadata, check _author.ejs
 │   │   ├── baker.json
 │   │   └── the-coldsmith.json
 │   ├── css
 │   │   └── main.css
 │   └── feed.json
 ├── plugins
-│   └── paginator.coffee      &lt;- paginator plugin
-├── templates
-│   ├── archive.pug
-│   ├── article.pug
-│   ├── author.pug
-│   ├── feed.pug
-│   ├── index.pug
-│   └── layout.pug
-└── views
-    └── articles.coffee       &lt;- view that lists articles
-</code></pre><p>Articles are sorted by date and 3 are shown per page, you can configure this and more in config.json. Check paginator.coffee for all options related to pagination, most plugins also have their own<span class="widont">&nbsp;</span>options.</p>
+│   └── paginator.js          &lt;- paginator plugin
+└── templates
+    ├── _article-header.ejs
+    ├── _article-nav.ejs
+    ├── _author.ejs           &lt;- partials are prefixed with an underscore
+    ├── _foot.ejs
+    ├── _head.ejs             &lt;- _head and _foot are the site layout
+    ├── _index-nav.ejs
+    ├── _site-header.ejs
+    ├── archive.ejs
+    ├── article.ejs
+    ├── feed.ejs
+    └── index.ejs
+</code></pre><p>Articles are sorted by date and 3 are shown per page, you can configure this and more in config.json. Check paginator.js for all options related to pagination, most plugins also have their own<span class="widont">&nbsp;</span>options.</p>
 <h3 id="a-typical-article">A typical article</h3>
 <pre><code class="language-markdown">---
 title: Hear me blog
@@ -86,8 +87,11 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
     <footer>
       <div class="content-wrap">
-        <div class="nav"><a href="/">&laquo; Full blog</a></div>
-        <section class="about"><p>Coldsmith is a fork of <a href="http://johan-nordberg.com">Wintersmith</a> by Johan Nordberg, and is licensed under the <a href="http://opensource.org/licenses/MIT">MIT-license</a>.
+        <div class="nav">
+          <a href="/">&laquo; Full blog</a>
+        </div>
+        <section class="about">
+          <p>Coldsmith is a fork of <a href="http://johan-nordberg.com">Wintersmith</a> by Johan Nordberg, and is licensed under the <a href="http://opensource.org/licenses/MIT">MIT-license</a>.
 This footer text can be edited in about.md</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

@@ -2,7 +2,7 @@
 title: A red herring
 author: baker
 date: 2013-04-01
-template: article.pug
+template: article.ejs
 ---
 
 A long time ago, when the world was young -- someone put some food on their tongue.

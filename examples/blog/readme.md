@@ -11,9 +11,14 @@ Run `npm install` to install the template's dependencies, then
 - `plugins/paginator.js` — the reference plugin. It registers a generator,
   subclasses the `Page` content plugin, and adds a helper to the environment.
 - Content groups, via `contents._.paginator` and `contents.articles`.
-- A JSON page (`contents/archive.json`) and an RSS feed built from a pug
+- A JSON page (`contents/archive.json`) and an RSS feed built from an EJS
   template rather than a special-cased feed generator.
 - Template context modules, through the `require` key in `config.json`.
+- A layout built from EJS partials. `_head.ejs` and `_foot.ejs` are the two
+  halves of the page shell; anything a page needs to vary — the title, the
+  body class, the header, the footer nav — is passed in as a local. Partials
+  are prefixed with an underscore by convention only; coldsmith loads every
+  `.ejs` file in the directory as a template.
 
 ## Note on dependencies
 

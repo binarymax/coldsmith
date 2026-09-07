@@ -1,0 +1,7 @@
+<%#
+  Was a pug mixin. Takes one local:
+
+    authorName  key into contents/authors, without the .json extension
+-%>
+<% const author = contents.authors[authorName + '.json'] -%>
+<span class="author"><% if (author) { %><a href="mailto:<%= author.metadata.email %>"><%= author.metadata.name %></a><% } else { %><%= authorName %><% } %></span>

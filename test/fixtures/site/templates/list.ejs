@@ -1,0 +1,21 @@
+<%- include('_head') -%>
+    <h1>Generated index</h1>
+<%# Content tree keys, as seen by a plain for-in walk. -%>
+    <ul class="names">
+<% names.forEach(function (name) { -%>
+      <li><%= name %></li>
+<% }) -%>
+    </ul>
+<%# Content groups. Each registered content plugin and generator contributes -%>
+<%# one, and every item lands in exactly one of them. -%>
+    <ul class="groups">
+      <li>pages: <%= contents._.pages.length %></li>
+      <li>shouts: <%= contents._.shouts.length %></li>
+      <li>files: <%= contents._.files.length %></li>
+      <li>directories: <%= contents._.directories.length %></li>
+      <li>generated: <%= contents._.generated.length %></li>
+    </ul>
+<%# Modules pulled in through the `require` config key. -%>
+    <p class="locals">helpers: <%= helpers.shout('quiet') %></p>
+    <p class="locals">nodePath: <%= nodePath.basename('/a/b/c.txt') %></p>
+<%- include('_foot') -%>
