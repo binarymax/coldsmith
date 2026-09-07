@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 Coldsmith is a static site generator: a hard fork of [wintersmith](https://github.com/jnordberg/wintersmith),
-which was abandoned in 2019. Version 1.0.0 is wintersmith 2.5.0's CoffeeScript
+which was abandoned in 2019. Version 3.0.0 is wintersmith 2.5.0's CoffeeScript
 ported to modern ESM JavaScript. `MODERNIZATION.md` is the plan that port ran
 against and explains most of the "why" questions; it still says "wintersmith"
 throughout because that is what the project was called while the work was done.
@@ -65,7 +65,7 @@ checking both paths.
 plugin can do everything they do.
 
 The bundled template language is **EJS**, not pug — wintersmith used pug and
-coldsmith 1.0.0 replaced it. EJS has no equivalent of pug's `extends`/`block`
+coldsmith 3.0.0 replaced it. EJS has no equivalent of pug's `extends`/`block`
 inheritance, so the example sites build layouts out of partials instead: a
 `_head.ejs`/`_foot.ejs` pair with the varying pieces passed in as locals. See
 `examples/blog/templates/`. The underscore prefix is convention only; every

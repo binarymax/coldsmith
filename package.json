@@ -1,6 +1,6 @@
 {
   "name": "coldsmith",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "A flexible static site generator.",
   "author": "Max Irwin <max@max.io> (https://max.io)",
   "contributors": [

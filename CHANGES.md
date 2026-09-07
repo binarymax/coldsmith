@@ -1,10 +1,12 @@
 # Coldsmith
 
 Coldsmith is a hard fork of [wintersmith](https://github.com/jnordberg/wintersmith),
-which was abandoned in 2019. Everything below 1.0.0 is wintersmith's history,
-kept because coldsmith's code descends from it directly.
+which was abandoned in 2019. Versioning continues wintersmith's line rather
+than restarting: 3.0.0 is the release that would have followed 2.5.0. So
+everything below is wintersmith's history, kept because coldsmith's code
+descends from it directly.
 
-## 1.0.0
+## 3.0.0
 
 _2026-09-07_
 

@@ -1,11 +1,12 @@
 # Wintersmith modernization plan
 
 > **Status: complete.** This is the plan the port from wintersmith 2.5.0 was
-> executed against, and the result was released as **coldsmith 1.0.0**. It is
-> kept for the rationale behind the decisions rather than as a live document —
-> so it still says "wintersmith" and "3.0" throughout, which is what the
-> project was called while the work was done. For what actually changed and how
-> to migrate, see [CHANGES.md](CHANGES.md).
+> executed against, and the result was released as **coldsmith 3.0.0** —
+> continuing wintersmith's version line rather than restarting, which is why
+> the "3.0" this document uses throughout ended up being the right number. It
+> is kept for the rationale behind the decisions rather than as a live
+> document, so it still says "wintersmith" for what is now called coldsmith.
+> For what actually changed and how to migrate, see [CHANGES.md](CHANGES.md).
 >
 > One prediction in here was wrong, and pleasantly so: `examples/webapp` was
 > expected to be unsalvageable and slated for deletion. It builds fine on the
@@ -13,7 +14,7 @@
 > suite as the plugin-compatibility check.
 >
 > One open question at the bottom of this document — "Pug's future", deferred
-> as not a 3.0 concern — was settled shortly after 1.0.0: pug was replaced by
+> as not a 3.0 concern — was settled just before release: pug was replaced by
 > EJS. The claim made here, that the template plugin interface makes swapping
 > the engine a small change, held up. The plugin is the same shape as the pug
 > one it replaced and the webapp golden snapshot did not move a byte; the cost
