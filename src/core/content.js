@@ -9,7 +9,7 @@ import url from 'node:url'
 import util from 'node:util'
 
 import chalk from 'chalk'
-import minimatch from 'minimatch'
+import { minimatch } from 'minimatch'
 
 import { callUser, dual, mapLimit } from './utils.js'
 

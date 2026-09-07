@@ -49,12 +49,21 @@ export class Environment extends EventEmitter {
     this.locals = {}
     this.localsLoaded = false
 
+    this.invalidateModules()
+  }
+
+  /**
+   * Drop every module loaded with `unloadOnReset`, so the next import re-reads
+   * it from disk. The preview server calls this when a view changes.
+   *
+   * ESM has no cache eviction, so imports are versioned instead - see
+   * loadModule. CommonJS modules reached through import() do land in the
+   * require cache, and that can be cleared properly.
+   */
+  invalidateModules() {
     let id
     while ((id = this.loadedModules.pop())) {
       this.logger.verbose(`unloading: ${id}`)
-      // ESM has no cache eviction, so imports are versioned instead - see
-      // loadModule. CommonJS modules reached through import() do land in the
-      // require cache, and that can be cleared.
       delete this.siteRequire.cache[id]
       delete ownRequire.cache[id]
     }

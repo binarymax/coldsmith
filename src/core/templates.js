@@ -2,7 +2,7 @@
 
 import path from 'node:path'
 
-import minimatch from 'minimatch'
+import { minimatch } from 'minimatch'
 
 import { callUser, dual, readdirRecursive } from './utils.js'
 
