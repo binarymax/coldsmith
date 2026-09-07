@@ -1,0 +1,5 @@
+{
+  "title": "A JSON Page",
+  "date": "2005-06-07 08:09:10",
+  "content": "A page built entirely from metadata, with its body in the *content* key."
+}

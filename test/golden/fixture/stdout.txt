@@ -1,0 +1,23 @@
+  building site
+  using config file: {{ROOT}}/test/fixtures/site/config.json
+  rendering tree:
+    pages/
+      deep/
+        note.md (url: /pages/deep/note.html)
+      index.md (url: /pages/)
+    custom-view.md (url: /custom-view.html)
+    data.json (url: /data.html)
+    dated.md (url: /2001/02/03/)
+    image.png (url: /image.png)
+    index.md (url: /)
+    index.page (url: /generated/)
+    loud.shout (url: /loud.html)
+    moustache.md (url: /cat/felines/out.html)
+    no-view.md (url: /no-view.html)
+    slug-me.md (url: /1999-hello-world-friends.html)
+    static.txt (url: /static.txt)
+    winter-matter.md (url: /winter-matter.html)
+    yaml-date.md (url: /yaml-date.html)
+
+  done in {{MS}} ms
+

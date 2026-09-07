@@ -1,0 +1,1 @@
+Handled by the StaticFile plugin and copied through byte for byte.

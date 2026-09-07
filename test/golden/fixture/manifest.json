@@ -1,0 +1,71 @@
+{
+  "1999-hello-world-friends.html": {
+    "sha256": "daa3498d6636d2bc4d75a0b10f8c838bbab60b311a59a9b79df8979b70b7ca51",
+    "bytes": 614,
+    "text": true
+  },
+  "2001/02/03/index.html": {
+    "sha256": "79851f229e06bcd6a2f63f5719b245fba4807923caaa9493788d818a922b8097",
+    "bytes": 702,
+    "text": true
+  },
+  "cat/felines/out.html": {
+    "sha256": "b17c176c1428418a1c28089a76f65e0861ad5339b610b01161036029ad986567",
+    "bytes": 762,
+    "text": true
+  },
+  "custom-view.html": {
+    "sha256": "c8e5a7ad7afd6bd4c287259092bed01a95d8686fdbdbe93f670ef8ba593a6075",
+    "bytes": 19,
+    "text": true
+  },
+  "data.html": {
+    "sha256": "b0fdad57e78ac983f9d1061b2ca496b8b201d8614018bd017e4bd91e02dac3e6",
+    "bytes": 570,
+    "text": true
+  },
+  "generated/index.html": {
+    "sha256": "dfb0e09acc0ee29fe8969be63cc90b94214c9e8df6b6ffee7de871dd3b034e5a",
+    "bytes": 611,
+    "text": true
+  },
+  "image.png": {
+    "sha256": "8581e78087dce3ca1c5c43155ba55e2e675a909507a73e326bb26089451bbe51",
+    "bytes": 89
+  },
+  "index.html": {
+    "sha256": "1140709d0c0d1a7d106afec9594c5bb4a290a9a7dd42692aa5b257a8b169e5e2",
+    "bytes": 2147,
+    "text": true
+  },
+  "loud.html": {
+    "sha256": "f0d6065ee24eec5c4a416108fafaa151275ee87e04d2e5734ed04471461db468",
+    "bytes": 588,
+    "text": true
+  },
+  "pages/deep/note.html": {
+    "sha256": "dd5f3bf54e89637b52c6761cf118de7123febf9491ea79a326db18c7c7d88777",
+    "bytes": 1019,
+    "text": true
+  },
+  "pages/index.html": {
+    "sha256": "09bc22c69aeef9450c05c1b92af4d0f05f6a9b040ac36e91ef00b28d18d3816b",
+    "bytes": 698,
+    "text": true
+  },
+  "static.txt": {
+    "sha256": "a1dbc1a3537f8d4a06f2656ee12db044358886b5d3ca23e8ce3713368a3fc06b",
+    "bytes": 67,
+    "text": true
+  },
+  "winter-matter.html": {
+    "sha256": "bccee634827ca32232901d7c467fd9e64751ab01a73fb8b1eaeaf4c790d7c8d2",
+    "bytes": 728,
+    "text": true
+  },
+  "yaml-date.html": {
+    "sha256": "84a171246c694c22e71cb07892a5a76c5a296956d2b23250d051664bb4430465",
+    "bytes": 866,
+    "text": true
+  }
+}

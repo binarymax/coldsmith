@@ -1,0 +1,60 @@
+{
+  "archive.html": {
+    "sha256": "64280ae302c7ec33da6b2ae846b2937821018aff45c03e4eea094fe1d0555b94",
+    "bytes": 3571,
+    "text": true
+  },
+  "articles/another-test/index.html": {
+    "sha256": "0232b95843433d052e2ac58cdbb80a8d14dd2557fce347abde8e3053886528dc",
+    "bytes": 7671,
+    "text": true
+  },
+  "articles/bamboo-cutter/index.html": {
+    "sha256": "30eaa3cbd629edf0f0e74ee77bd89c5eff0f3feec40a74c48a4327b3a3749a31",
+    "bytes": 35961,
+    "text": true
+  },
+  "articles/bamboo-cutter/taketori_monogatari.jpg": {
+    "sha256": "9226e35044725e959a2d31881caa6f2038f9c840c252000c2badbfd0cdc97bd5",
+    "bytes": 388600
+  },
+  "articles/hello-world/index.html": {
+    "sha256": "e2cbca8335458fd60602e5b556690e348b3e3be43c016c79d5b279b5c194236b",
+    "bytes": 5537,
+    "text": true
+  },
+  "articles/markdown-syntax/index.html": {
+    "sha256": "a0350dc5b0e317c45b9f60da6f9efecafa594c0a65034d9f930d7b3f486fb6ea",
+    "bytes": 39112,
+    "text": true
+  },
+  "articles/red-herring/banana.png": {
+    "sha256": "58e4a6249b416b4daec7b1b653d28f791e75ae9621a7b7b0a11bb0179947f890",
+    "bytes": 327896
+  },
+  "articles/red-herring/index.html": {
+    "sha256": "177c0986e3d8097825cdc3cdbe2a196ada9c6584b02a423597257d6886f06e89",
+    "bytes": 3362,
+    "text": true
+  },
+  "css/main.css": {
+    "sha256": "c5a23ca4c0159dfcd54a0d2331f99bbb2d7eb73e1344226df9b808fac451d04a",
+    "bytes": 7325,
+    "text": true
+  },
+  "feed.xml": {
+    "sha256": "d451dc85e2fc8f19083e378cefa8eee63029b5da1c3013fc73e1f8ac04473b42",
+    "bytes": 87397,
+    "text": true
+  },
+  "index.html": {
+    "sha256": "5c615fcaea9fbdd565de720846ac1e7b7eb4cdb4e6429a9d178ad8feffcae65c",
+    "bytes": 3902,
+    "text": true
+  },
+  "page/2/index.html": {
+    "sha256": "d3ac38210a2f972addb00a876a0e4525e20f53ba3ec50c07377bbfd3f6f4b020",
+    "bytes": 3764,
+    "text": true
+  }
+}

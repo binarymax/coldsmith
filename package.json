@@ -15,7 +15,9 @@
     "wintersmith": "./bin/wintersmith"
   },
   "scripts": {
-    "prepublishOnly": "node ./bin/dev/compile_coffee"
+    "prepublishOnly": "node ./bin/dev/compile_coffee",
+    "test": "node --test test/*.test.mjs",
+    "test:update": "node ./test/update-golden.mjs"
   },
   "directories": {
     "lib": "./lib/"
