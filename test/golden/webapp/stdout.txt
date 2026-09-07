@@ -1,0 +1,18 @@
+  building site
+  using config file: {{ROOT}}/examples/webapp/config.json
+  rendering tree:
+    scripts/
+      vendor/
+        ready.js (url: /scripts/vendor/ready.js)
+      main.coffee (url: /scripts/main.js)
+    styles/
+      vendor/
+        elements.less (url: /styles/vendor/elements.css)
+        reset.less (url: /styles/vendor/reset.css)
+      main.less (url: /styles/main.css)
+    favicon.ico (url: /favicon.ico)
+    index.json (url: /)
+    robots.txt (url: /robots.txt)
+
+  done in {{MS}} ms
+

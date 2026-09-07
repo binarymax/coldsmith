@@ -1,0 +1,15 @@
+node_modules/
+package-lock.json
+
+# Generated snapshots.
+test/golden/
+
+# Site content is user data. Reformatting markdown here would change rendered
+# output and silently invalidate the golden snapshots.
+examples/*/contents/
+examples/*/build/
+examples/*/node_modules/
+test/fixtures/*/contents/
+
+# Legal text stays byte-identical.
+LICENSE.md

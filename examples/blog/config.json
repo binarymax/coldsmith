@@ -1,13 +1,11 @@
 {
   "locals": {
     "url": "http://localhost:8080",
-    "name": "The Wintersmith's blog",
+    "name": "The Coldsmith's blog",
     "owner": "Someone",
     "description": "Ramblings of an immor(t)al demigod"
   },
-  "plugins": [
-    "./plugins/paginator.coffee"
-  ],
+  "plugins": ["./plugins/paginator.js"],
   "require": {
     "moment": "moment",
     "_": "underscore",
@@ -17,7 +15,6 @@
     "pretty": true
   },
   "markdown": {
-    "smartLists": true,
     "smartypants": true
   },
   "paginator": {

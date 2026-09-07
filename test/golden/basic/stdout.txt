@@ -1,0 +1,7 @@
+  building site
+  using config file: {{ROOT}}/examples/basic/config.json
+  rendering tree:
+    index.md (url: /)
+
+  done in {{MS}} ms
+

@@ -1,0 +1,32 @@
+  building site
+  using config file: {{ROOT}}/examples/blog/config.json
+  rendering tree:
+    articles/
+      another-test/
+        index.md (url: /articles/another-test/)
+      bamboo-cutter/
+        index.md (url: /articles/bamboo-cutter/)
+        taketori_monogatari.jpg (url: /articles/bamboo-cutter/taketori_monogatari.jpg)
+      hello-world/
+        index.md (url: /articles/hello-world/)
+      markdown-syntax/
+        index.md (url: /articles/markdown-syntax/)
+      red-herring/
+        banana.png (url: /articles/red-herring/banana.png)
+        index.md (url: /articles/red-herring/)
+    authors/
+      baker.json (url: /authors/baker.html)
+      the-coldsmith.json (url: /authors/the-coldsmith.html)
+    css/
+      main.css (url: /css/main.css)
+    pages/
+      1.page (url: /)
+      2.page (url: /page/2/)
+    about.md (url: /about.html)
+    archive.json (url: /archive.html)
+    feed.json (url: /feed.xml)
+    index.page (url: /)
+    last.page (url: /page/2/)
+
+  done in {{MS}} ms
+

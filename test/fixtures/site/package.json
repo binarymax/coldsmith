@@ -1,0 +1,6 @@
+{
+  "name": "coldsmith-fixture-site",
+  "private": true,
+  "//": "Explicitly CommonJS. Real sites are their own package, and this one's plugin and view are written in the callback-style CommonJS that every published plugin uses.",
+  "type": "commonjs"
+}

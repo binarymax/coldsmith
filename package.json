@@ -1,53 +1,77 @@
 {
-  "name": "wintersmith",
-  "version": "2.5.0",
-  "author": "Johan Nordberg <code@johan-nordberg.com>",
+  "name": "coldsmith",
+  "version": "1.0.0",
   "description": "A flexible static site generator.",
+  "author": "Max Irwin <max@max.io> (https://max.io)",
+  "contributors": [
+    "Johan Nordberg <code@johan-nordberg.com> (http://johan-nordberg.com)"
+  ],
   "license": "MIT",
-  "main": "./lib/",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
   "keywords": [
     "static",
     "generator",
+    "static-site-generator",
     "markdown",
-    "pug"
+    "pug",
+    "wintersmith"
   ],
   "bin": {
-    "wintersmith": "./bin/wintersmith"
+    "coldsmith": "./bin/coldsmith"
   },
+  "files": [
+    "bin",
+    "src",
+    "examples",
+    "!examples/*/node_modules",
+    "!examples/*/build",
+    "!examples/*/package-lock.json",
+    "CHANGES.md",
+    "LICENSE.md",
+    "README.md"
+  ],
   "scripts": {
-    "prepublishOnly": "node ./bin/dev/compile_coffee"
-  },
-  "directories": {
-    "lib": "./lib/"
+    "test": "node --test test/*.test.mjs",
+    "test:update": "node ./test/update-golden.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jnordberg/wintersmith.git"
+    "url": "git+https://github.com/binarymax/coldsmith.git"
   },
+  "bugs": {
+    "url": "https://github.com/binarymax/coldsmith/issues"
+  },
+  "homepage": "https://github.com/binarymax/coldsmith#readme",
   "dependencies": {
-    "async": "^2.6.1",
-    "chalk": "^2.4.1",
-    "chokidar": "^2.0.4",
-    "coffee-script": "^1.12.7",
-    "highlight.js": "^9.13.1",
-    "js-yaml": "^3.12.0",
-    "marked": "^0.5.1",
-    "mime": "^2.3.1",
-    "minimatch": "^3.0.3",
+    "chalk": "^6.0.0",
+    "chokidar": "^5.0.0",
+    "highlight.js": "^11.12.0",
+    "js-yaml": "^5.4.1",
+    "marked": "^18.0.11",
+    "marked-gfm-heading-id": "^4.1.4",
+    "marked-highlight": "^2.2.4",
+    "marked-smartypants": "^1.1.12",
+    "mime": "^4.1.0",
+    "minimatch": "^10.2.6",
     "minimist": "^1.2.0",
-    "mkdirp": "^0.5.1",
-    "ncp": "^2.0.0",
-    "npm": "^6.4.1",
-    "pug": "^2.0.3",
-    "rimraf": "^2.6.2",
-    "server-destroy": "^1.0.1",
-    "slugg": "^1.2.1",
-    "winston": "^3.1.0"
+    "pug": "^3.0.4",
+    "slugg": "^1.2.1"
   },
   "devDependencies": {
-    "shelljs": "^0.8.3"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.10.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.6"
   },
-  "engine": {
-    "node": ">=4"
+  "engines": {
+    "node": ">=20.11"
   }
 }

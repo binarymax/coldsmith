@@ -1,0 +1,18 @@
+{
+  "locals": {
+    "siteName": "Fixture Site"
+  },
+  "plugins": ["./plugins/shout.js"],
+  "require": {
+    "nodePath": "path",
+    "helpers": "./lib/helpers.js"
+  },
+  "views": "./views",
+  "defaultTemplate": "page.pug",
+  "ignore": ["*.tmp", "secret", "**/*.draft.md"],
+  "baseUrl": "/",
+  "markdown": {},
+  "shout": {
+    "suffix": "!!!"
+  }
+}
