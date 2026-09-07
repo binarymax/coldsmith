@@ -1,18 +1,38 @@
-## 3.0.0
+# Coldsmith
+
+Coldsmith is a hard fork of [wintersmith](https://github.com/jnordberg/wintersmith),
+which was abandoned in 2019. Everything below 1.0.0 is wintersmith's history,
+kept because coldsmith's code descends from it directly.
+
+## 1.0.0
 
 _unreleased_
 
-Wintersmith is written in modern JavaScript now. The CoffeeScript is gone,
-there is no build step, and the dependency list went from 19 packages to 13.
-Requires Node 20.11 or newer.
+Forked from wintersmith 2.5.0 and ported to modern JavaScript. The CoffeeScript
+is gone, there is no build step, and the dependency list went from 19 packages
+to 13. Requires Node 20.11 or newer.
 
-Most sites will build unchanged. Read "Breaking changes" before upgrading.
+Most wintersmith sites will build unchanged under coldsmith. Read "Breaking
+changes" before migrating.
+
+### Migrating from wintersmith
+
+1. `npm uninstall wintersmith && npm install coldsmith`
+2. Run `coldsmith` instead of `wintersmith`. The commands, flags and
+   `config.json` format are unchanged.
+3. Third-party `wintersmith-*` plugins keep working — the plugin API is
+   preserved, and `coldsmith plugin list` searches for both the
+   `coldsmith-plugin` and `wintersmith-plugin` keywords.
 
 ### Breaking changes
 
-- **Node 20.11+ required**, and the package is **ESM only**. `require('wintersmith')`
-  no longer works; use `import wintersmith from 'wintersmith'`. The CLI is
-  unaffected.
+_Relative to wintersmith 2.5.0._
+
+- **The package and command are named `coldsmith`.** `WINTERSMITH_PATH` is
+  still honoured, but the user storage directory is now `~/.coldsmith`.
+- **Node 20.11+ required**, and the package is **ESM only**.
+  `require('wintersmith')` no longer works; use
+  `import coldsmith from 'coldsmith'`. The CLI is unaffected.
 - **CoffeeScript support is removed.** Plugins, views and config files written
   in CoffeeScript no longer load; convert them to JavaScript, or compile them
   first. Loading a `.coffee` file now fails with a message saying so. (Plugins
@@ -78,6 +98,12 @@ Most sites will build unchanged. Read "Breaking changes" before upgrading.
 - Content tree scanning is deterministic: content groups follow sorted
   filenames rather than whichever file read finished first.
 - There is a test suite. There was not one before.
+
+---
+
+# Wintersmith history
+
+Releases below are wintersmith's, before the fork.
 
 ## 2.5.0
 

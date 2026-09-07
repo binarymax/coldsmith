@@ -1,17 +1,12 @@
 /**
- * Locates and runs the wintersmith CLI.
+ * Locates and runs the coldsmith CLI.
  *
- * The golden-output tests have to run against both the old CoffeeScript
- * implementation and the ported JavaScript one, without being edited in
- * between. So the entry point is resolved dynamically:
- *
- *   1. $WINTERSMITH_CLI, if set (used to diff two implementations by hand)
- *   2. bin/wintersmith, once src/cli/index.js exists
- *   3. bin/dev/cli.cjs, the CoffeeScript entry point
+ * Resolved at runtime rather than hardcoded: during the port from wintersmith
+ * this let the same tests run unchanged against both implementations, which is
+ * how each ported file was verified before the next was started.
  */
 
 import { spawn } from 'node:child_process'
-import { existsSync } from 'node:fs'
 import { mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
@@ -20,13 +15,10 @@ import { fileURLToPath } from 'node:url'
 export const repoRoot = fileURLToPath(new URL('../..', import.meta.url))
 
 export function resolveCli() {
-  if (process.env.WINTERSMITH_CLI) {
-    return path.resolve(process.env.WINTERSMITH_CLI)
+  if (process.env.COLDSMITH_CLI) {
+    return path.resolve(process.env.COLDSMITH_CLI)
   }
-  if (existsSync(path.join(repoRoot, 'src', 'cli', 'index.js'))) {
-    return path.join(repoRoot, 'bin', 'wintersmith')
-  }
-  return path.join(repoRoot, 'bin', 'dev', 'cli.cjs')
+  return path.join(repoRoot, 'bin', 'coldsmith')
 }
 
 export function run(args, { cwd = repoRoot } = {}) {
@@ -64,7 +56,7 @@ export function run(args, { cwd = repoRoot } = {}) {
  * The caller owns the directory and should pass it to `cleanup`.
  */
 export async function buildSite(siteDir) {
-  const output = await mkdtemp(path.join(tmpdir(), 'wintersmith-golden-'))
+  const output = await mkdtemp(path.join(tmpdir(), 'coldsmith-golden-'))
   const result = await run(['build', '--chdir', siteDir, '--output', output], {
     cwd: siteDir,
   })

@@ -4,7 +4,7 @@ import { commonOptions, commonUsage, extendOptions, loadEnv } from './common.js'
 
 export const usage = `
 
-  usage: wintersmith preview [options]
+  usage: coldsmith preview [options]
 
   options:
 
@@ -17,7 +17,7 @@ export const usage = `
   examples:
 
     preview using a config file (assuming config.json is found in working directory):
-    $ wintersmith preview
+    $ coldsmith preview
 
 `
 

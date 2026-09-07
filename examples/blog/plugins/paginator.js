@@ -2,7 +2,7 @@
  * Paginator plugin. Defaults can be overridden in config.json, e.g.
  * "paginator": {"perPage": 10}
  *
- * This is the reference example for writing a wintersmith plugin: it
+ * This is the reference example for writing a coldsmith plugin: it
  * registers a generator, subclasses the Page content plugin, and hangs a
  * helper off the environment for templates to use.
  */

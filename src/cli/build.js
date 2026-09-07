@@ -8,7 +8,7 @@ import { commonOptions, commonUsage, extendOptions, loadEnv } from './common.js'
 
 export const usage = `
 
-  usage: wintersmith build [options]
+  usage: coldsmith build [options]
 
   options:
 
@@ -21,13 +21,13 @@ export const usage = `
   examples:
 
     build using a config file (assuming config.json is found in working directory):
-    $ wintersmith build
+    $ coldsmith build
 
     build using command line options:
-    $ wintersmith build -o /var/www/public/ -T extra_data.json -C ~/my-blog
+    $ coldsmith build -o /var/www/public/ -T extra_data.json -C ~/my-blog
 
     or using both (command-line options will override config options):
-    $ wintersmith build --config another_config.json --clean
+    $ coldsmith build --config another_config.json --clean
 
 `
 

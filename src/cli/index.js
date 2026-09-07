@@ -15,7 +15,7 @@ const COMMANDS = {
 
 const usage = `
 
-  usage: wintersmith [options] [command]
+  usage: coldsmith [options] [command]
 
   commands:
 

@@ -16,7 +16,7 @@
         index.md (url: /articles/red-herring/)
     authors/
       baker.json (url: /authors/baker.html)
-      the-wintersmith.json (url: /authors/the-wintersmith.html)
+      the-coldsmith.json (url: /authors/the-coldsmith.html)
     css/
       main.css (url: /css/main.css)
     pages/

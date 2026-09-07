@@ -1,10 +1,10 @@
 # Blog
 
-The default [wintersmith](https://github.com/jnordberg/wintersmith) template.
-This is what `wintersmith new <path>` scaffolds unless you pass `-T`.
+The default [coldsmith](https://github.com/binarymax/coldsmith) template.
+This is what `coldsmith new <path>` scaffolds unless you pass `-T`.
 
 Run `npm install` to install the template's dependencies, then
-`wintersmith preview` to start the local server.
+`coldsmith preview` to start the local server.
 
 ## What it demonstrates
 

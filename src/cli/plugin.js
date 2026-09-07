@@ -8,7 +8,7 @@ import { commonOptions, extendOptions, loadEnv, npmInstall } from './common.js'
 
 export const usage = `
 
-  usage: wintersmith plugin [options] <command>
+  usage: coldsmith plugin [options] <command>
 
   commands:
 
@@ -32,18 +32,20 @@ function clip(string, maxlen) {
 }
 
 function normalizePluginName(name) {
-  return name.replace(/^wintersmith-/, '')
+  return name.replace(/^(coldsmith|wintersmith)-/, '')
 }
 
 /**
- * Search the npm registry for plugins.
+ * Plugin keywords searched on the npm registry.
  *
- * Wintersmith 2 used api.npms.io, which has since shut down. This is the
- * registry's own search endpoint.
+ * Coldsmith is a hard fork of wintersmith and stays compatible with its plugin
+ * API, so the whole `wintersmith-plugin` ecosystem is still usable and still
+ * worth listing. New plugins should use `coldsmith-plugin`.
  */
-async function fetchListing() {
-  const url =
-    'https://registry.npmjs.org/-/v1/search?text=keywords:wintersmith-plugin&size=250'
+const PLUGIN_KEYWORDS = ['coldsmith-plugin', 'wintersmith-plugin']
+
+async function search(keyword) {
+  const url = `https://registry.npmjs.org/-/v1/search?text=keywords:${keyword}&size=250`
   const response = await fetch(url)
   if (!response.ok) {
     throw new Error(
@@ -54,11 +56,23 @@ async function fetchListing() {
   if (!/^application\/json/.test(contentType)) {
     throw new Error(`Invalid content-type: ${contentType}`)
   }
-
   const parsed = await response.json()
-  return parsed.objects
-    .map((result) => result.package)
-    .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+  return parsed.objects.map((result) => result.package)
+}
+
+/** Search the npm registry for plugins, under either keyword. */
+async function fetchListing() {
+  const results = await Promise.all(PLUGIN_KEYWORDS.map(search))
+
+  // A plugin may carry both keywords; list it once.
+  const seen = new Map()
+  for (const pkg of results.flat()) {
+    if (!seen.has(pkg.name)) seen.set(pkg.name, pkg)
+  }
+
+  return [...seen.values()].sort((a, b) =>
+    a.name < b.name ? -1 : a.name > b.name ? 1 : 0,
+  )
 }
 
 function displayListing(list) {

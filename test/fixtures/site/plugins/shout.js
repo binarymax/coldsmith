@@ -2,7 +2,7 @@
 // register a generator, and hang a helper off the environment.
 //
 // Deliberately written as CommonJS with a callback signature - this is the
-// shape every published wintersmith plugin has, and it must keep working.
+// shape every published wintersmith plugin has, and coldsmith keeps it working.
 
 var fs = require('fs')
 

@@ -30,7 +30,7 @@ const templates = await loadTemplates()
 
 export const usage = `
 
-  usage: wintersmith new [options] <path>
+  usage: coldsmith new [options] <path>
 
   creates a skeleton site in <path>
 
@@ -44,7 +44,7 @@ export const usage = `
   example:
 
     create a new site in your home directory
-    $ wintersmith new ~/my-blog
+    $ coldsmith new ~/my-blog
 
 `
 
@@ -76,7 +76,7 @@ export default async function createSite(argv) {
   const to = path.resolve(location)
 
   logger.info(
-    `initializing new wintersmith site in ${to} using template ${argv.template}`,
+    `initializing new coldsmith site in ${to} using template ${argv.template}`,
   )
 
   try {

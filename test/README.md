@@ -10,7 +10,7 @@ npm test
 
 `golden.test.mjs` builds each site in `support/sites.mjs` and compares the
 result, byte for byte, against a snapshot committed under `golden/`. This is
-the safety net for the CoffeeScript-to-JavaScript port: the implementation
+the safety net for the CoffeeScript-to-JavaScript port that produced coldsmith: the implementation
 underneath changes completely, the rendered bytes must not.
 
 A snapshot is a `manifest.json` of every output file with its sha256, verbatim
@@ -18,8 +18,8 @@ copies of the text output under `files/` so failures produce a readable diff,
 and `stdout.txt` — which incidentally covers `ContentTree.inspect()`, plugin
 colours, and URL generation.
 
-The tests locate the CLI themselves: `$WINTERSMITH_CLI` if set, otherwise
-`bin/wintersmith`. During the port this let the same tests run unchanged
+The tests locate the CLI themselves: `$COLDSMITH_CLI` if set, otherwise
+`bin/coldsmith`. During the port this let the same tests run unchanged
 against both the CoffeeScript and the JavaScript implementation, which is how
 each ported file was verified before the next one was started.
 
@@ -36,7 +36,7 @@ npm run test:update
 Do this only when output has changed **on purpose**, and read the `git diff`
 before committing.
 
-The snapshots were re-baselined exactly once during the 3.0 port, for the
+The snapshots were re-baselined exactly once during the port, for the
 marked 0.5 → 18 and highlight.js 9 → 11 upgrades — different block whitespace,
 different token class names. Any other change in that diff is a bug.
 
@@ -61,8 +61,8 @@ different token class names. Any other change in that diff is a bug.
 | Syntax highlighting                                                                               | `contents/index.md`                                      |
 
 `plugins/shout.js` is deliberately CommonJS with callback signatures, because
-that is the shape of every published wintersmith plugin. If a port breaks it,
-it breaks the ecosystem.
+that is the shape of every published wintersmith plugin, and coldsmith keeps
+that API. If a change breaks this, it breaks the ecosystem.
 
 ## Sites under test
 

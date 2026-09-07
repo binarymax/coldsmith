@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The Wintersmith's blog</title>
+    <title>The Coldsmith's blog</title>
     <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://localhost:8080</link>
     <description>Ramblings of an immor(t)al demigod</description>
     <pubDate>Tue, 30 Apr 2013 00:00:00 +0000</pubDate>
-    <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
+    <generator>Coldsmith - https://github.com/binarymax/coldsmith</generator>
     <language>en</language>
     <item>
       <title>README</title>
       <link>http://localhost:8080/articles/hello-world/</link>
       <pubDate>Tue, 30 Apr 2013 00:00:00 +0000</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/hello-world/</guid>
-      <author>The Wintersmith</author>
-      <description>&lt;p&gt;Welcome to your new blog! This is the default blog template with RSS, pagination and an archive. There are other templates available &amp;#8211; run &lt;code&gt;wintersmith new --help&lt;/code&gt; to list them.&lt;/p&gt;
+      <author>The Coldsmith</author>
+      <description>&lt;p&gt;Welcome to your new blog! This is the default blog template with RSS, pagination and an archive. There are other templates available &amp;#8211; run &lt;code&gt;coldsmith new --help&lt;/code&gt; to list them.&lt;/p&gt;
 &lt;h2 id=&quot;repeat-after-me-this-is-my-blog-there-are-many-like-it-but-this-one-is-mine-my-blog-is-my-best-friend-it-is-my-life-i-must-master-it-as-i-must-master-my-life-my-blog-without-me-is-useless-without-my-blog-i-am-useless&quot;&gt;&lt;em&gt;Repeat after me:&lt;/em&gt; This is my blog. There are many like it, but this one is mine. My blog is my best friend. It is my life. I must master it as I must master my life. My blog, without me, is useless. Without my blog, I am useless.&lt;/h2&gt;
 &lt;p&gt;Good, now, the directory structure of your blog is as follows:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;├── config.json               &amp;lt;- site configuration
@@ -36,7 +36,7 @@
 │   │       └── index.md
 │   ├── authors               &amp;lt;- author metadata, check author.pug
 │   │   ├── baker.json
-│   │   └── the-wintersmith.json
+│   │   └── the-coldsmith.json
 │   ├── css
 │   │   └── main.css
 │   └── feed.json
@@ -72,7 +72,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;links-in-the-markdown-to-other-items-in-the-content-tree-will-be-resolved-for-you&quot;&gt;Links in the markdown to other items in the content tree will be resolved for you.&lt;/h2&gt;
 &lt;p&gt;For example a link to &lt;code&gt;../bamboo-cutter/index.md&lt;/code&gt; resolves to &lt;a href=&quot;/articles/bamboo-cutter/&quot;&gt;&lt;code&gt;/articles/bamboo-cutter/&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;This is where I leave you to your own devices. Join &lt;strong&gt;#wintersmith&lt;/strong&gt; on freenode if you have any questions.&lt;/p&gt;
+&lt;p&gt;This is where I leave you to your own devices. Open an issue on &lt;a href=&quot;https://github.com/binarymax/coldsmith/issues&quot;&gt;GitHub&lt;/a&gt; if you have any questions.&lt;/p&gt;
 </description>
     </item>
     <item>
@@ -108,7 +108,7 @@ Because, believe it or not, a banana is not a friend.&lt;/p&gt;
       <link>http://localhost:8080/articles/another-test/</link>
       <pubDate>Mon, 01 Oct 2012 15:00:00 +0000</pubDate>
       <guid isPermaLink="true">http://localhost:8080/articles/another-test/</guid>
-      <author>The Wintersmith</author>
+      <author>The Coldsmith</author>
       <description>&lt;p&gt;Syntax highlighting with &lt;a href=&quot;http://softwaremaniacs.org/soft/highlight/en/&quot;&gt;highlight.js&lt;/a&gt;.
 The theme used is tomorrow, you can find more themes &lt;a href=&quot;http://jmblog.github.io/color-themes-for-highlightjs/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;

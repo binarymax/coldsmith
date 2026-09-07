@@ -72,8 +72,8 @@ function parseMarkdownSync(content, markdown, baseUrl, options) {
   ]
 
   // marked dropped the smartypants option in v5 as well. It is a documented
-  // wintersmith config key that visibly changes a site's typography, so it is
-  // honoured through the official extension instead.
+  // config key that visibly changes a site's typography, so it is honoured
+  // through the official extension instead.
   if (options.smartypants) extensions.push(markedSmartypants())
 
   const parser = new Marked(

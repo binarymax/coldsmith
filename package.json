@@ -1,8 +1,11 @@
 {
-  "name": "wintersmith",
-  "version": "3.0.0",
-  "author": "Johan Nordberg <code@johan-nordberg.com>",
+  "name": "coldsmith",
+  "version": "1.0.0",
   "description": "A flexible static site generator.",
+  "author": "Max Irwin <max@max.io> (https://max.io)",
+  "contributors": [
+    "Johan Nordberg <code@johan-nordberg.com> (http://johan-nordberg.com)"
+  ],
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -12,11 +15,13 @@
   "keywords": [
     "static",
     "generator",
+    "static-site-generator",
     "markdown",
-    "pug"
+    "pug",
+    "wintersmith"
   ],
   "bin": {
-    "wintersmith": "./bin/wintersmith"
+    "coldsmith": "./bin/coldsmith"
   },
   "files": [
     "bin",
@@ -38,8 +43,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jnordberg/wintersmith.git"
+    "url": "git+https://github.com/binarymax/coldsmith.git"
   },
+  "bugs": {
+    "url": "https://github.com/binarymax/coldsmith/issues"
+  },
+  "homepage": "https://github.com/binarymax/coldsmith#readme",
   "dependencies": {
     "chalk": "^6.0.0",
     "chokidar": "^5.0.0",

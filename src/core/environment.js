@@ -1,4 +1,4 @@
-/** The wintersmith environment: configuration, plugins, and the build entry points. */
+/** The coldsmith environment: configuration, plugins, and the build entry points. */
 
 import { EventEmitter } from 'node:events'
 import { readdir } from 'node:fs/promises'
@@ -95,7 +95,7 @@ export class Environment extends EventEmitter {
         return this.siteRequire.resolve(module)
       default:
         try {
-          // The site's own dependencies win over wintersmith's.
+          // The site's own dependencies win over coldsmith's.
           return this.siteRequire.resolve(module)
         } catch {
           return ownRequire.resolve(module)
@@ -175,9 +175,8 @@ export class Environment extends EventEmitter {
   async loadModule(module, unloadOnReset = false) {
     if (module.endsWith('.coffee')) {
       throw new Error(
-        `cannot load '${module}': CoffeeScript support was removed in ` +
-          'wintersmith 3. Convert the file to JavaScript, or compile it ' +
-          'before loading.',
+        `cannot load '${module}': coldsmith does not support CoffeeScript. ` +
+          'Convert the file to JavaScript, or compile it before loading.',
       )
     }
 
@@ -191,7 +190,7 @@ export class Environment extends EventEmitter {
       // Versioning the specifier is the only way to re-import a module after a
       // reset; ESM has no cache eviction. The old copy is leaked, which is
       // acceptable for a preview server picking up edits.
-      if (unloadOnReset) url.searchParams.set('wintersmith', this.generation)
+      if (unloadOnReset) url.searchParams.set('coldsmith', this.generation)
       specifier = url.href
     }
 

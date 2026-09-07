@@ -1,13 +1,16 @@
 # Wintersmith modernization plan
 
-> **Status: complete.** This is the plan the 3.0 port was executed against,
-> kept for the rationale behind the decisions rather than as a live document.
-> For what actually changed and how to upgrade, see [CHANGES.md](CHANGES.md).
+> **Status: complete.** This is the plan the port from wintersmith 2.5.0 was
+> executed against, and the result was released as **coldsmith 1.0.0**. It is
+> kept for the rationale behind the decisions rather than as a live document —
+> so it still says "wintersmith" and "3.0" throughout, which is what the
+> project was called while the work was done. For what actually changed and how
+> to migrate, see [CHANGES.md](CHANGES.md).
 >
 > One prediction in here was wrong, and pleasantly so: `examples/webapp` was
-> expected to be unsalvageable and slated for deletion. It builds fine on 3.0,
-> third-party plugins and all, so it was kept and promoted into the test suite
-> as the plugin-compatibility check.
+> expected to be unsalvageable and slated for deletion. It builds fine on the
+> port, third-party plugins and all, so it was kept and promoted into the test
+> suite as the plugin-compatibility check.
 
 Convert Wintersmith from CoffeeScript 1.x to modern JavaScript and bring the
 dependency set back to life, without orphaning the existing plugin ecosystem.

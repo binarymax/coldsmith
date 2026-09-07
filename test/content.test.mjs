@@ -7,8 +7,9 @@ import { ContentPlugin, ContentTree, StaticFile } from '../src/core/content.js'
 /**
  * The inheritance helper CoffeeScript 1.x emitted, copied verbatim.
  *
- * Every wintersmith plugin published before 3.0 was compiled with this, so it
- * is the compatibility contract for the base classes. The critical line is
+ * Every plugin ever published for wintersmith was compiled with this, and
+ * coldsmith keeps that plugin API, so it is the compatibility contract for the
+ * base classes. The critical line is
  * `child.__super__ = parent.prototype` combined with constructors that call
  * `Parent.apply(this, arguments)` - an ES class throws there.
  */

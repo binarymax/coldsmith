@@ -124,7 +124,7 @@ test('stripExtension removes only the last extension', () => {
 })
 
 test('async helpers support both promise and callback forms', async (t) => {
-  const dir = await mkdtemp(path.join(tmpdir(), 'wintersmith-utils-'))
+  const dir = await mkdtemp(path.join(tmpdir(), 'coldsmith-utils-'))
   t.after(() => rm(dir, { recursive: true, force: true }))
 
   const jsonPath = path.join(dir, 'data.json')

@@ -56,7 +56,7 @@ export function extendOptions(base, extra) {
 }
 
 /**
- * Create a wintersmith environment.
+ * Create a coldsmith environment.
  * Options resolve as: argv > config file > defaults.
  */
 export async function loadEnv(argv) {
@@ -119,8 +119,8 @@ export async function loadEnv(argv) {
  * Run `npm install` in *cwd*.
  *
  * Wintersmith 2 depended on the npm package and drove it through its
- * programmatic API, which npm removed in version 7 - so both `wintersmith new`
- * and `wintersmith plugin install` have been broken for years. Shelling out is
+ * programmatic API, which npm removed in version 7 - so both `new` and
+ * `plugin install` were broken for years before the fork. Shelling out is
  * the supported way to do this, and it drops a very large dependency.
  */
 export function npmInstall(args, cwd) {
@@ -147,10 +147,13 @@ export function npmInstall(args, cwd) {
   })
 }
 
-/** The user's wintersmith directory, used for cache and user templates. */
+/** The user's coldsmith directory, used for cache and user templates. */
 export function getStorageDir() {
-  if (process.env.WINTERSMITH_PATH != null) return process.env.WINTERSMITH_PATH
+  // WINTERSMITH_PATH is honoured so that a site migrating from wintersmith
+  // keeps finding its user templates.
+  const configured = process.env.COLDSMITH_PATH ?? process.env.WINTERSMITH_PATH
+  if (configured != null) return configured
   const home = process.env.HOME || process.env.USERPROFILE
-  const dir = process.platform === 'win32' ? 'wintersmith' : '.wintersmith'
+  const dir = process.platform === 'win32' ? 'coldsmith' : '.coldsmith'
   return path.resolve(home, dir)
 }

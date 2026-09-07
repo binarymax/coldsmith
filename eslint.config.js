@@ -20,7 +20,7 @@ export default [
 
   // The library and CLI: ESM, node.
   {
-    files: ['src/**/*.js', 'bin/wintersmith', 'test/**/*.mjs', '*.js'],
+    files: ['src/**/*.js', 'bin/coldsmith', 'test/**/*.mjs', '*.js'],
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: 'module',

@@ -20,9 +20,9 @@ const minimatchOptions = { dot: false }
  * ContentPlugin - the base class for everything that turns a file into output.
  *
  * Deliberately a function constructor rather than an ES class, and it has to
- * stay that way. Every wintersmith plugin published before 3.0 was compiled by
- * CoffeeScript 1.x, whose inheritance helper calls the parent constructor as a
- * plain function:
+ * stay that way. Coldsmith keeps wintersmith's plugin API, and every plugin
+ * ever published for wintersmith was compiled by CoffeeScript 1.x, whose
+ * inheritance helper calls the parent constructor as a plain function:
  *
  *     function MarkdownPage() { return Page.apply(this, arguments) }
  *
