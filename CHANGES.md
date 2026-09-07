@@ -15,7 +15,9 @@ Most sites will build unchanged. Read "Breaking changes" before upgrading.
   unaffected.
 - **CoffeeScript support is removed.** Plugins, views and config files written
   in CoffeeScript no longer load; convert them to JavaScript, or compile them
-  first. Loading a `.coffee` file now fails with a message saying so.
+  first. Loading a `.coffee` file now fails with a message saying so. (Plugins
+  that compile CoffeeScript _content_ themselves, such as
+  wintersmith-browserify, are unaffected — they bring their own compiler.)
 - **`markdown.smartLists` is a no-op.** marked removed the option and there is
   no replacement; its list handling is GFM-conformant now.
 - **Unquoted front-matter dates that include a time are read as local, not

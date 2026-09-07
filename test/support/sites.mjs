@@ -25,6 +25,20 @@ export const sites = [
     needs: path.join(repoRoot, 'examples', 'blog', 'node_modules'),
     hint: 'run `npm install` in examples/blog',
   },
+  {
+    // The ecosystem regression test. This site is built entirely by
+    // third-party plugins - wintersmith-less, -browserify, -nunjucks and
+    // -livereload - none of which have been touched since 2016 and all of
+    // which were compiled from CoffeeScript 1.x. If a change breaks plugin
+    // compatibility, this is where it shows up.
+    //
+    // Not run in CI: it installs 400-odd packages, several deprecated, from
+    // unmaintained projects. Run it locally when touching the plugin API.
+    name: 'webapp',
+    dir: path.join(repoRoot, 'examples', 'webapp'),
+    needs: path.join(repoRoot, 'examples', 'webapp', 'node_modules'),
+    hint: 'run `npm install` in examples/webapp',
+  },
 ]
 
 export function goldenDir(name) {

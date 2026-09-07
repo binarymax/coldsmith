@@ -18,13 +18,10 @@ copies of the text output under `files/` so failures produce a readable diff,
 and `stdout.txt` — which incidentally covers `ContentTree.inspect()`, plugin
 colours, and URL generation.
 
-The tests find the CLI themselves, in this order:
-
-1. `$WINTERSMITH_CLI`, for diffing two implementations by hand
-2. `bin/wintersmith`, once `src/cli/index.js` exists
-3. `bin/dev/cli.cjs`, the CoffeeScript entry point
-
-So the same tests run against both implementations with no edits.
+The tests locate the CLI themselves: `$WINTERSMITH_CLI` if set, otherwise
+`bin/wintersmith`. During the port this let the same tests run unchanged
+against both the CoffeeScript and the JavaScript implementation, which is how
+each ported file was verified before the next one was started.
 
 Builds are run with `TZ=UTC` because `rfc822date()` formats in local time. The
 current year is normalized to `{{BUILD_YEAR}}` because the blog example renders
@@ -37,13 +34,11 @@ npm run test:update
 ```
 
 Do this only when output has changed **on purpose**, and read the `git diff`
-before committing. Two upgrades in the port are expected to change output and
-will need a deliberate re-baseline:
+before committing.
 
-- **marked 0.5 → 16** — different HTML for the same markdown
-- **highlight.js 9 → 11** — different token class names
-
-Anything else that shows up in that diff is a porting bug.
+The snapshots were re-baselined exactly once during the 3.0 port, for the
+marked 0.5 → 18 and highlight.js 9 → 11 upgrades — different block whitespace,
+different token class names. Any other change in that diff is a bug.
 
 ## Fixtures
 
@@ -69,5 +64,23 @@ Anything else that shows up in that diff is a porting bug.
 that is the shape of every published wintersmith plugin. If a port breaks it,
 it breaks the ecosystem.
 
-The `examples/blog` golden test is skipped unless its dependencies are
-installed (`cd examples/blog && npm install`).
+## Sites under test
+
+| Site              | Covers                                          |
+| ----------------- | ----------------------------------------------- |
+| `fixtures/site`   | the matrix above                                |
+| `examples/basic`  | the minimum viable site                         |
+| `examples/blog`   | generators, pagination, feeds, template context |
+| `examples/webapp` | **third-party plugin compatibility**            |
+
+The `blog` and `webapp` tests skip unless their dependencies are installed
+(`npm install` in the respective directory).
+
+`examples/webapp` is the ecosystem regression test. It is built entirely by
+plugins nobody has touched since 2016 — `wintersmith-less`,
+`wintersmith-browserify`, `wintersmith-nunjucks` and `wintersmith-livereload`
+— all compiled from CoffeeScript 1.x against the wintersmith 2 API. If a change
+breaks plugin compatibility, this is where it surfaces. It is deliberately kept
+out of CI, because it installs 400-odd packages from unmaintained projects; run
+it locally when touching the plugin API, the base classes, or the extension
+point calling convention.

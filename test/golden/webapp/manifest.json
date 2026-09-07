@@ -1,0 +1,41 @@
+{
+  "favicon.ico": {
+    "sha256": "f58c47d1d053009eb13411eafd433e479526e2968a89caa6f7c45ec5dbc23031",
+    "bytes": 5430
+  },
+  "index.html": {
+    "sha256": "8fb69e6130daa2c6598533e8b3054ea6de2492fa40e4ec8c38136e453c3e1bb7",
+    "bytes": 865,
+    "text": true
+  },
+  "robots.txt": {
+    "sha256": "e5c4b84484ee4216e9373be99380320c25dd94805f99f0a805846f087636553f",
+    "bytes": 24,
+    "text": true
+  },
+  "scripts/main.js": {
+    "sha256": "94a84454dd55f619973a7045d77064b32e8329102c32362221a59e4e695d42de",
+    "bytes": 35972,
+    "text": true
+  },
+  "scripts/vendor/ready.js": {
+    "sha256": "c01fa9dd78dfaae25ce294ca64c5451610a2e3f80f0dbe8368eece5324fa2487",
+    "bytes": 1962,
+    "text": true
+  },
+  "styles/main.css": {
+    "sha256": "321b73825fbed77d1db054e1a412e8419a770c13414b6da9b00dfe391befd9b8",
+    "bytes": 2283,
+    "text": true
+  },
+  "styles/vendor/elements.css": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "text": true
+  },
+  "styles/vendor/reset.css": {
+    "sha256": "caafec0216c3ac1f10473fafa21364bd594f1a72f9d8ceeaa4e94604188f1b86",
+    "bytes": 952,
+    "text": true
+  }
+}

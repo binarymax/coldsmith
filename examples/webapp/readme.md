@@ -4,6 +4,13 @@ Opinionated web application template for wintersmith.
 
 Run `npm install` to install the plugins and deps.
 
+> **Heads up:** every plugin this template uses is unmaintained — none has been
+> released since 2016, and all were written against wintersmith 2. They still
+> work, and wintersmith's test suite uses this site as its plugin-compatibility
+> check, but the packages they pull in are old and some are deprecated. Treat
+> this template as a demonstration that third-party plugins survived the 3.0
+> port, not as a recommended starting point for new work.
+
 ## Uses
 
 - Plugins
