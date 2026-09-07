@@ -159,7 +159,9 @@ export async function loadContent(env, filepath) {
 
   // Later registrations win, so search backwards.
   for (let i = env.contentPlugins.length - 1; i >= 0; i--) {
-    if (minimatch(filepath.relative, env.contentPlugins[i].pattern, minimatchOptions)) {
+    if (
+      minimatch(filepath.relative, env.contentPlugins[i].pattern, minimatchOptions)
+    ) {
       plugin = env.contentPlugins[i]
       break
     }

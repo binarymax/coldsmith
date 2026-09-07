@@ -349,9 +349,7 @@ export function run(env, callback) {
   }
 
   if (env.config._restartOnConfChange && env.config.__filename != null) {
-    env.logger.verbose(
-      `watching config file ${env.config.__filename} for changes`,
-    )
+    env.logger.verbose(`watching config file ${env.config.__filename} for changes`)
     const configWatcher = chokidar.watch(env.config.__filename)
     configWatcher.on('change', async () => {
       let config

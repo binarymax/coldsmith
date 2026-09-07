@@ -9,13 +9,13 @@ Last commit: June 2019.
 
 ## Decisions
 
-| Decision | Choice |
-| --- | --- |
-| Module system | **ESM only**, `"type": "module"`, `engines.node >= 20` |
-| Plugin/view API | **async/await internally, callback extension points still accepted** |
-| CoffeeScript in user sites | **Dropped.** Examples converted to JS |
-| Dependencies | **Full modernization** — current majors, drop what Node does natively |
-| Language | **JavaScript. Never TypeScript.** JSDoc types only, if any |
+| Decision                   | Choice                                                                |
+| -------------------------- | --------------------------------------------------------------------- |
+| Module system              | **ESM only**, `"type": "module"`, `engines.node >= 20`                |
+| Plugin/view API            | **async/await internally, callback extension points still accepted**  |
+| CoffeeScript in user sites | **Dropped.** Examples converted to JS                                 |
+| Dependencies               | **Full modernization** — current majors, drop what Node does natively |
+| Language                   | **JavaScript. Never TypeScript.** JSDoc types only, if any            |
 
 No TypeScript anywhere: not in source, not in a build step, not as `.d.ts`
 authored by hand. If editor types are wanted later, generate them from JSDoc.
@@ -28,7 +28,7 @@ Without tests, every later phase is a guess. This phase is the highest-value
 work in the plan and must land before a single `.coffee` file is deleted.
 
 1. **Golden-output harness.** Script that builds an example site with the
-   *current* CoffeeScript implementation and records `build/` as a manifest of
+   _current_ CoffeeScript implementation and records `build/` as a manifest of
    `relative path -> sha256`, plus verbatim copies of the HTML files. Snapshot
    goes in `test/fixtures/golden/`.
    - `examples/basic` — trivial, markdown + pug.
@@ -67,15 +67,17 @@ implements inheritance with `__extends` and calls the parent constructor as a
 plain function:
 
 ```js
-function MarkdownPage() { return Page.apply(this, arguments); }  // CS 1.x output
-__extends(MarkdownPage, Page);
+function MarkdownPage() {
+  return Page.apply(this, arguments)
+} // CS 1.x output
+__extends(MarkdownPage, Page)
 ```
 
 An ES `class` throws `TypeError: Class constructor cannot be invoked without
 'new'` in exactly that situation. So converting `ContentPlugin`, `Page`, and
 `TemplatePlugin` into ES classes silently breaks every third-party plugin.
 
-**Recommendation:** keep the three *public base classes* as function
+**Recommendation:** keep the three _public base classes_ as function
 constructors with prototype methods — roughly 20 lines of deliberately
 non-idiomatic code, commented as such. `class X extends ContentPlugin` works
 fine against a function constructor, so modern subclasses are unaffected and
@@ -87,7 +89,7 @@ asserts it still works.
 
 ### 1b. `ContentTree` enumerability is load-bearing
 
-`ContentTree` is deliberately *not* a CoffeeScript class ("we need a clean
+`ContentTree` is deliberately _not_ a CoffeeScript class ("we need a clean
 prototype"). `filename`, `parent`, `index`, `_`, and `__groupNames` are all
 installed with `Object.defineProperty` and therefore non-enumerable, so
 `for key of tree` yields **only content items**. `ContentTree.flatten`,
@@ -112,14 +114,14 @@ Drop `async` (the library) entirely and rewrite the core in async/await.
 
 **Mapping:**
 
-| Current | Replacement |
-| --- | --- |
-| `async.waterfall` | sequential `await` |
-| `async.parallel` / `async.map` | `Promise.all` |
-| `async.series` / `mapSeries` | `for...of` with `await` |
-| `async.forEachLimit(items, config._fileLimit, ...)` | small `mapLimit(items, limit, fn)` helper in `utils` |
-| `async.until(isReady, sleep)` | `while (!isReady()) await setTimeout(50)` (`node:timers/promises`) |
-| `async.apply` | arrow function |
+| Current                                             | Replacement                                                        |
+| --------------------------------------------------- | ------------------------------------------------------------------ |
+| `async.waterfall`                                   | sequential `await`                                                 |
+| `async.parallel` / `async.map`                      | `Promise.all`                                                      |
+| `async.series` / `mapSeries`                        | `for...of` with `await`                                            |
+| `async.forEachLimit(items, config._fileLimit, ...)` | small `mapLimit(items, limit, fn)` helper in `utils`               |
+| `async.until(isReady, sleep)`                       | `while (!isReady()) await setTimeout(50)` (`node:timers/promises`) |
+| `async.apply`                                       | arrow function                                                     |
 
 `config._fileLimit` (default 40) exists to cap open file descriptors during
 tree scanning and rendering. It must survive the rewrite — the `mapLimit`
@@ -154,17 +156,17 @@ From 19 runtime dependencies to roughly 8.
 
 **Removed, replaced by Node built-ins:**
 
-| Dep | Replacement |
-| --- | --- |
-| `async` | native promises + `mapLimit` helper |
-| `mkdirp` | `fs.mkdir(dir, { recursive: true })` |
-| `rimraf` | `fs.rm(dir, { recursive: true, force: true })` |
-| `ncp` | `fs.cp(src, dest, { recursive: true })` |
-| `server-destroy` | `server.closeAllConnections()` (Node 18.2+) |
-| `npm` (a ~50 MB runtime dep!) | `spawn('npm', ['install'], { cwd, stdio })` |
-| `winston` + custom Transport | ~50-line logger module |
-| `coffee-script` | gone |
-| `minimist` | `node:util` `parseArgs` — see caveat below |
+| Dep                           | Replacement                                    |
+| ----------------------------- | ---------------------------------------------- |
+| `async`                       | native promises + `mapLimit` helper            |
+| `mkdirp`                      | `fs.mkdir(dir, { recursive: true })`           |
+| `rimraf`                      | `fs.rm(dir, { recursive: true, force: true })` |
+| `ncp`                         | `fs.cp(src, dest, { recursive: true })`        |
+| `server-destroy`              | `server.closeAllConnections()` (Node 18.2+)    |
+| `npm` (a ~50 MB runtime dep!) | `spawn('npm', ['install'], { cwd, stdio })`    |
+| `winston` + custom Transport  | ~50-line logger module                         |
+| `coffee-script`               | gone                                           |
+| `minimist`                    | `node:util` `parseArgs` — see caveat below     |
 
 **Upgraded, with API changes to handle:**
 
@@ -216,28 +218,28 @@ with the rest of the tree still on CoffeeScript. Run
 `node bin/dev/cli` (CoffeeScript, via register) against the same fixtures in
 parallel during the transition.
 
-| # | File | Lines | Notes |
-| --- | --- | --- | --- |
-| 1 | `core/utils` | 98 | Add `mapLimit`, `callUser`. `fileExists` off deprecated `fs.exists` → `fs.access`. `rfc822` unchanged. `pump` → `stream/promises` `pipeline` |
-| 2 | `core/logger` | 51 | Replace winston entirely. Keep `logger.transports[0].level/.quiet` shape or update the 3 CLI call sites |
-| 3 | `core/config` | 69 | Straightforward. `Config.defaults` static |
-| 4 | `core/content` | 294 | **Highest risk.** `ContentTree` (Phase 1b), `ContentPlugin` (Phase 1a), `inspect` → `util.inspect.custom` |
-| 5 | `core/templates` | 58 | `loadTemplate` currently assigns the template even when `fromFile` errored — fix |
-| 6 | `core/generator` | 38 | Trivial |
-| 7 | `core/renderer` | 66 | `mkdirp.sync` → `fs.mkdir` recursive; keep `_fileLimit` |
-| 8 | `core/environment` | 312 | `loadModule` → dynamic `import()`; drop coffee register; `resolveModule` via `import.meta.resolve` / `createRequire`. Module cache invalidation for `reset()` is **not possible with ESM** — see below |
-| 9 | `core/server` | 334 | Preview server + watchers; drop `server-destroy` |
-| 10 | `plugins/page` | 158 | `@property` helper; `vm` moustache eval stays |
-| 11 | `plugins/markdown` | 162 | marked rewrite (Phase 3) |
-| 12 | `plugins/pug` | 33 | Trivial |
-| 13 | `cli/common` | 155 | Delete `NpmAdapter` and the Node-0.8 `stream.Writable` shim |
-| 14 | `cli/index` | 76 | Command dispatch → explicit map, not dynamic `require` on user input |
-| 15 | `cli/build` | 84 | `rimraf` → `fs.rm` |
-| 16 | `cli/preview` | 53 | Trivial |
-| 17 | `cli/new` | 102 | npm API → `spawn` |
-| 18 | `cli/plugin` | 194 | npm API → `spawn`; registry endpoint fix |
-| 19 | `cli/version` | 4 | No longer generated at build time — read `package.json` via `readFile(new URL('../package.json', import.meta.url))` |
-| 20 | `index` | 9 | Named exports |
+| #   | File               | Lines | Notes                                                                                                                                                                                                  |
+| --- | ------------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | `core/utils`       | 98    | Add `mapLimit`, `callUser`. `fileExists` off deprecated `fs.exists` → `fs.access`. `rfc822` unchanged. `pump` → `stream/promises` `pipeline`                                                           |
+| 2   | `core/logger`      | 51    | Replace winston entirely. Keep `logger.transports[0].level/.quiet` shape or update the 3 CLI call sites                                                                                                |
+| 3   | `core/config`      | 69    | Straightforward. `Config.defaults` static                                                                                                                                                              |
+| 4   | `core/content`     | 294   | **Highest risk.** `ContentTree` (Phase 1b), `ContentPlugin` (Phase 1a), `inspect` → `util.inspect.custom`                                                                                              |
+| 5   | `core/templates`   | 58    | `loadTemplate` currently assigns the template even when `fromFile` errored — fix                                                                                                                       |
+| 6   | `core/generator`   | 38    | Trivial                                                                                                                                                                                                |
+| 7   | `core/renderer`    | 66    | `mkdirp.sync` → `fs.mkdir` recursive; keep `_fileLimit`                                                                                                                                                |
+| 8   | `core/environment` | 312   | `loadModule` → dynamic `import()`; drop coffee register; `resolveModule` via `import.meta.resolve` / `createRequire`. Module cache invalidation for `reset()` is **not possible with ESM** — see below |
+| 9   | `core/server`      | 334   | Preview server + watchers; drop `server-destroy`                                                                                                                                                       |
+| 10  | `plugins/page`     | 158   | `@property` helper; `vm` moustache eval stays                                                                                                                                                          |
+| 11  | `plugins/markdown` | 162   | marked rewrite (Phase 3)                                                                                                                                                                               |
+| 12  | `plugins/pug`      | 33    | Trivial                                                                                                                                                                                                |
+| 13  | `cli/common`       | 155   | Delete `NpmAdapter` and the Node-0.8 `stream.Writable` shim                                                                                                                                            |
+| 14  | `cli/index`        | 76    | Command dispatch → explicit map, not dynamic `require` on user input                                                                                                                                   |
+| 15  | `cli/build`        | 84    | `rimraf` → `fs.rm`                                                                                                                                                                                     |
+| 16  | `cli/preview`      | 53    | Trivial                                                                                                                                                                                                |
+| 17  | `cli/new`          | 102   | npm API → `spawn`                                                                                                                                                                                      |
+| 18  | `cli/plugin`       | 194   | npm API → `spawn`; registry endpoint fix                                                                                                                                                               |
+| 19  | `cli/version`      | 4     | No longer generated at build time — read `package.json` via `readFile(new URL('../package.json', import.meta.url))`                                                                                    |
+| 20  | `index`            | 9     | Named exports                                                                                                                                                                                          |
 
 **Method:** hand-port with the CoffeeScript open alongside. Do **not** run the
 output of `decaffeinate` or `coffee -c` into the tree — the async/await rewrite
@@ -246,7 +248,7 @@ single tricky expression with `coffee -c -p` to check semantics is fine.
 
 ### The port runs on a hybrid tree
 
-`"type": "module"` was set at the *start* of the port rather than the end,
+`"type": "module"` was set at the _start_ of the port rather than the end,
 because it makes the tree incrementally portable:
 
 - Node resolves `require('./utils')` to `utils.js` before `utils.coffee`, and
@@ -262,7 +264,7 @@ for as long as any CoffeeScript caller remains, which the dual-signature helper
 
 Two things this turned up:
 
-- Extensionless entry points (`bin/dev/cli`) *do* follow the nearest
+- Extensionless entry points (`bin/dev/cli`) _do_ follow the nearest
   `package.json` `"type"`, so the CoffeeScript dev entry was renamed to
   `bin/dev/cli.cjs`.
 - Files inside `test/fixtures/site/` needed their own `package.json` declaring
@@ -281,7 +283,7 @@ and the preview server relies on this to pick up view edits without a restart
 3. `module.register()` loader hook (over-engineered here).
 
 **Recommendation:** option 1, with the counter bumped per reload. Note that
-CommonJS user plugins loaded through `import()` land in the *CJS* cache, which
+CommonJS user plugins loaded through `import()` land in the _CJS_ cache, which
 `createRequire(...).cache` can still evict — so keep that path too.
 
 ### CoffeeScript idioms that translate wrongly
@@ -300,7 +302,7 @@ Add these to the review checklist for every file:
   (arrays stringify when used as an object key). Fix to `.at(-1)`.
 - `(' ' for [0...n]).join('')` → `' '.repeat(n)`.
 - `a ? b` → `a ?? b`; `a ?= b` → `a ??= b`; `a?.b` → `a?.b`; soaked
-  *assignment* `instance?.__env = env` has no JS equivalent — needs an `if`.
+  _assignment_ `instance?.__env = env` has no JS equivalent — needs an `if`.
 - `key in array` → `array.includes(key)`; `for k, v of obj` →
   `Object.entries(obj)` (watch prototype-chain walks: `for...of` on an object
   in CoffeeScript is `for...in` in JS and **does** walk the prototype — this is
@@ -376,5 +378,5 @@ Phase 6  examples
 
 The golden-output diff after every file in Phase 4 is what makes this
 tractable: any change in rendered bytes is either an intentional, documented
-break (marked's HTML output *will* differ across 16 majors — expect to
+break (marked's HTML output _will_ differ across 16 majors — expect to
 re-baseline once, deliberately, at step 11) or a porting bug.

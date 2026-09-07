@@ -49,21 +49,21 @@ Anything else that shows up in that diff is a porting bug.
 
 `fixtures/site/` is a purpose-built site covering what the examples miss:
 
-| Covered | Where |
-| --- | --- |
-| YAML front matter and ```metadata blocks | `contents/index.md`, `winter-matter.md` |
-| Quoted vs. unquoted YAML dates | `contents/index.md`, `yaml-date.md` |
-| Link resolution: sibling, nested, anchor, absolute, external, unresolvable, image | `contents/index.md` |
-| Link resolution walking back up the tree | `contents/pages/deep/note.md` |
-| `filenameTemplate`: `:year`/`:month`/`:day`, `:title` slugification, absolute paths, `{{ }}` eval | `contents/dated.md`, `slug-me.md`, `moustache.md` |
-| `view: none` and a custom view from `views/` | `contents/no-view.md`, `custom-view.md` |
-| Ignore globs: extension, directory, nested pattern | `config.json`, `ignored.tmp`, `secret/`, `note.draft.md` |
-| A JSON page | `contents/data.json` |
-| A user plugin registering a content plugin, a generator, and a helper | `plugins/shout.js` |
-| Modules loaded through `require` — builtin and site-relative | `config.json`, `lib/helpers.js` |
-| Content groups and tree enumerability | `templates/list.pug` |
-| `page.intro` / `page.hasMore` cutoffs | `templates/page.pug` |
-| Syntax highlighting | `contents/index.md` |
+| Covered                                                                                           | Where                                                    |
+| ------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| YAML front matter and ```metadata blocks                                                          | `contents/index.md`, `winter-matter.md`                  |
+| Quoted vs. unquoted YAML dates                                                                    | `contents/index.md`, `yaml-date.md`                      |
+| Link resolution: sibling, nested, anchor, absolute, external, unresolvable, image                 | `contents/index.md`                                      |
+| Link resolution walking back up the tree                                                          | `contents/pages/deep/note.md`                            |
+| `filenameTemplate`: `:year`/`:month`/`:day`, `:title` slugification, absolute paths, `{{ }}` eval | `contents/dated.md`, `slug-me.md`, `moustache.md`        |
+| `view: none` and a custom view from `views/`                                                      | `contents/no-view.md`, `custom-view.md`                  |
+| Ignore globs: extension, directory, nested pattern                                                | `config.json`, `ignored.tmp`, `secret/`, `note.draft.md` |
+| A JSON page                                                                                       | `contents/data.json`                                     |
+| A user plugin registering a content plugin, a generator, and a helper                             | `plugins/shout.js`                                       |
+| Modules loaded through `require` — builtin and site-relative                                      | `config.json`, `lib/helpers.js`                          |
+| Content groups and tree enumerability                                                             | `templates/list.pug`                                     |
+| `page.intro` / `page.hasMore` cutoffs                                                             | `templates/page.pug`                                     |
+| Syntax highlighting                                                                               | `contents/index.md`                                      |
 
 `plugins/shout.js` is deliberately CommonJS with callback signatures, because
 that is the shape of every published wintersmith plugin. If a port breaks it,

@@ -75,10 +75,7 @@ test('preview server', async (t) => {
   await t.test('serves a rendered page at a directory url', async () => {
     const response = await get(server, '/')
     assert.equal(response.status, 200)
-    assert.equal(
-      response.headers.get('content-type'),
-      'text/html; charset=UTF-8',
-    )
+    assert.equal(response.headers.get('content-type'), 'text/html; charset=UTF-8')
     const body = await response.text()
     assert.match(body, /<title>Fixture Index \| Fixture Site<\/title>/)
     // Link resolution runs in preview too.
@@ -142,7 +139,10 @@ test('preview server', async (t) => {
     const original = await readFile(file, 'utf8')
     t.after(() => writeFile(file, original))
 
-    assert.doesNotMatch(await (await get(server, '/winter-matter.html')).text(), /RELOADED/)
+    assert.doesNotMatch(
+      await (await get(server, '/winter-matter.html')).text(),
+      /RELOADED/,
+    )
 
     await writeFile(file, original.replace('Both forms', 'RELOADED forms'))
 

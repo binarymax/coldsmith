@@ -19,12 +19,14 @@ module.exports = function (env, callback) {
 
   /** The articles found in *contents*, newest first. */
   function getArticles(contents) {
-    return contents[options.articles]._.directories
-      // Each article is assumed to have its own directory.
-      .map((item) => item.index)
-      // Skip articles with no template.
-      .filter((item) => item.template !== 'none')
-      .sort((a, b) => b.date - a.date)
+    return (
+      contents[options.articles]._.directories
+        // Each article is assumed to have its own directory.
+        .map((item) => item.index)
+        // Skip articles with no template.
+        .filter((item) => item.template !== 'none')
+        .sort((a, b) => b.date - a.date)
+    )
   }
 
   /** A page of articles. */

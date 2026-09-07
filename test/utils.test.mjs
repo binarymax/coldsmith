@@ -26,12 +26,16 @@ test('mapLimit preserves input order', async () => {
 test('mapLimit never exceeds the concurrency limit', async () => {
   let inFlight = 0
   let peak = 0
-  await mapLimit(Array.from({ length: 20 }, (_, i) => i), 4, async () => {
-    inFlight++
-    peak = Math.max(peak, inFlight)
-    await new Promise((r) => setTimeout(r, 1))
-    inFlight--
-  })
+  await mapLimit(
+    Array.from({ length: 20 }, (_, i) => i),
+    4,
+    async () => {
+      inFlight++
+      peak = Math.max(peak, inFlight)
+      await new Promise((r) => setTimeout(r, 1))
+      inFlight--
+    },
+  )
   assert.equal(peak, 4, 'this cap is what keeps config._fileLimit meaningful')
 })
 
@@ -70,9 +74,13 @@ test('callUser accepts a promise-returning function', async () => {
 
 test('callUser catches a synchronous throw', async () => {
   await assert.rejects(
-    callUser(() => {
-      throw new Error('sync boom')
-    }, null, []),
+    callUser(
+      () => {
+        throw new Error('sync boom')
+      },
+      null,
+      [],
+    ),
     /sync boom/,
   )
 })

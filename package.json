@@ -1,11 +1,14 @@
 {
   "name": "wintersmith",
-  "version": "2.5.0",
+  "version": "3.0.0",
   "author": "Johan Nordberg <code@johan-nordberg.com>",
   "description": "A flexible static site generator.",
   "license": "MIT",
   "type": "module",
-  "main": "./lib/",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
   "keywords": [
     "static",
     "generator",
@@ -15,12 +18,23 @@
   "bin": {
     "wintersmith": "./bin/wintersmith"
   },
+  "files": [
+    "bin",
+    "src",
+    "examples",
+    "!examples/*/node_modules",
+    "!examples/*/build",
+    "!examples/*/package-lock.json",
+    "CHANGES.md",
+    "LICENSE.md",
+    "README.md"
+  ],
   "scripts": {
     "test": "node --test test/*.test.mjs",
-    "test:update": "node ./test/update-golden.mjs"
-  },
-  "directories": {
-    "lib": "./lib/"
+    "test:update": "node ./test/update-golden.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "repository": {
     "type": "git",
@@ -41,7 +55,14 @@
     "pug": "^3.0.4",
     "slugg": "^1.2.1"
   },
-  "engine": {
-    "node": ">=4"
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.10.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.6"
+  },
+  "engines": {
+    "node": ">=20.11"
   }
 }

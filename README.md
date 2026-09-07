@@ -1,4 +1,4 @@
-#![Wintersmith](http://wintersmith.io/images/wintersmith.svg)
+# Wintersmith
 
 Wintersmith is a simple yet flexible static site generator. It takes contents (markdown, less, scripts, etc), transforms them using plugins and outputs a static website (html, css, images, etc) that you can host anywhere.
 
@@ -6,19 +6,17 @@ It ships with plugins for [markdown](http://daringfireball.net/projects/markdown
 
 ## Resources
 
- * [Project site][website]
- * [API Documentation][docs]
- * [Wiki][wiki]
- * [stackoverflow tag](http://stackoverflow.com/questions/tagged/wintersmith)
- * IRC - **#wintersmith** on freenode
+- [Wiki][wiki]
+- [Changelog](CHANGES.md)
+- [stackoverflow tag](http://stackoverflow.com/questions/tagged/wintersmith)
 
-[website]: http://wintersmith.io "Wintersmith project website"
-[docs]: http://wintersmith.io/docs "Wintersmith API Documentation"
-[wiki]: https://github.com/jnordberg/wintersmith/wiki "Wintersmith wiki"
-[plugin-listing]: https://github.com/jnordberg/wintersmith/wiki/Plugins "Wintersmith plugin listing"
-[plugin-guide]: https://github.com/jnordberg/wintersmith/wiki/Writing-plugins "Wintersmith plugin guide"
+[wiki]: https://github.com/jnordberg/wintersmith/wiki 'Wintersmith wiki'
+[plugin-listing]: https://github.com/jnordberg/wintersmith/wiki/Plugins 'Wintersmith plugin listing'
+[plugin-guide]: https://github.com/jnordberg/wintersmith/wiki/Writing-plugins 'Wintersmith plugin guide'
 
 ## Quick-start
+
+Wintersmith requires **Node.js 20.11 or newer**.
 
 First install wintersmith using [npm](http://npmjs.org/):
 
@@ -71,8 +69,6 @@ The ContentTree is a nested object built up of ContentPlugins and looks somethin
 }
 ```
 
-![Wintersmith](http://wintersmith.io/images/flow.svg)
-
 This content tree is provided in full to the views when rendering. This gives you a lot of flexibility when writing plugins, you could for example write a plugin that generates a mosaic using images located in a specific directory.
 
 Wintersmith comes with a default Page plugin that renders markdown content using templates. This plugin takes markdown (combined with some metadata, more on this later) compiles it and provides it to a template along with the content tree and some utility functions.
@@ -89,21 +85,21 @@ Configuration can be done with command-line options, a config file or both. The 
 
 ### Options
 
-Name         | Default         | Description
--------------|-----------------|-----------------------------------------------
-contents     | `./contents`    | contents directory location
-templates    | `./templates`   | templates directory location
-views        | `null`          | views directory location, optional
-locals       | `{}`            | global site variables, can also be a path to a json file
-require      | `{}`            | modules to load and add to locals. e.g. if you want underscore as `_` you would say `{"_": "underscore"}`
-plugins      | `[]`            | list of plugins to load
-ignore       | `[]`            | list of files or pattern to ignore
-output       | `./build`       | output directory, this is where the generated site is output when building
-filenameTemplate | `:file.html`| outputs filenames and paths according to a template. ([documentation](https://github.com/jnordberg/wintersmith/wiki/Page-Plugin#filename-templating))
-introCutoffs | `['<span class="more', '<h2', '<hr']` | list of strings to search for when determining if a page has an intro
-baseUrl      | `/`             | base url that site lives on, e.g. `/blog/`.
-hostname     | `null`          | hostname to bind preview server to, null = INADDR_ANY
-port         | `8080`          | port preview server listens on
+| Name             | Default                               | Description                                                                                                                                           |
+| ---------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| contents         | `./contents`                          | contents directory location                                                                                                                           |
+| templates        | `./templates`                         | templates directory location                                                                                                                          |
+| views            | `null`                                | views directory location, optional                                                                                                                    |
+| locals           | `{}`                                  | global site variables, can also be a path to a json file                                                                                              |
+| require          | `{}`                                  | modules to load and add to locals. e.g. if you want underscore as `_` you would say `{"_": "underscore"}`                                             |
+| plugins          | `[]`                                  | list of plugins to load                                                                                                                               |
+| ignore           | `[]`                                  | list of files or pattern to ignore                                                                                                                    |
+| output           | `./build`                             | output directory, this is where the generated site is output when building                                                                            |
+| filenameTemplate | `:file.html`                          | outputs filenames and paths according to a template. ([documentation](https://github.com/jnordberg/wintersmith/wiki/Page-Plugin#filename-templating)) |
+| introCutoffs     | `['<span class="more', '<h2', '<hr']` | list of strings to search for when determining if a page has an intro                                                                                 |
+| baseUrl          | `/`                                   | base url that site lives on, e.g. `/blog/`.                                                                                                           |
+| hostname         | `null`                                | hostname to bind preview server to, null = INADDR_ANY                                                                                                 |
+| port             | `8080`                                | port preview server listens on                                                                                                                        |
 
 All paths can either be relative or absolute. Relative paths will be resolved from the working directory or `--chdir` if set.
 
@@ -115,11 +111,11 @@ The ContentPlugin class is that all content plugins inherit from. Subclasses hav
 
 All content plugins have the following properties (a property in wintersmith is simply a shortcut to a getter. i.e. `item.filename` is the same as calling `item.getFilename()`)
 
-Property     | Getter signature | Description
--------------|------------------|---------------------
-filename     | `getFilename()`  | filename content will be rendered to
-view         | `getView()`      | function used to render the plugin, e.g. the page plugin uses a view that passes the plugin and locals to a template
-url          | `getUrl(base)`   | url for the content. *base* is from where this url will be resolved and defaults to `config.baseUrl`. for example you can call `content.getUrl('http://myiste.com')` to get a permalink to that content
+| Property | Getter signature | Description                                                                                                                                                                                             |
+| -------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| filename | `getFilename()`  | filename content will be rendered to                                                                                                                                                                    |
+| view     | `getView()`      | function used to render the plugin, e.g. the page plugin uses a view that passes the plugin and locals to a template                                                                                    |
+| url      | `getUrl(base)`   | url for the content. _base_ is from where this url will be resolved and defaults to `config.baseUrl`. for example you can call `content.getUrl('http://myiste.com')` to get a permalink to that content |
 
 ## The Page plugin
 
@@ -131,15 +127,14 @@ The Page model (inherits from ContentPlugin)
 
 Properties:
 
-Name         | Description
--------------|------------
-metadata     | object containing the pages metadata
-title        | `metadata.title` or `Untitled`
-date         | Date object created from `metadata.date` if set, unix epoch time if not
-rfc822date   | a rfc-822 formatted string made from `date`
-body         | markdown source
-html         | parsed markdown as html
-
+| Name       | Description                                                             |
+| ---------- | ----------------------------------------------------------------------- |
+| metadata   | object containing the pages metadata                                    |
+| title      | `metadata.title` or `Untitled`                                          |
+| date       | Date object created from `metadata.date` if set, unix epoch time if not |
+| rfc822date | a rfc-822 formatted string made from `date`                             |
+| body       | markdown source                                                         |
+| html       | parsed markdown as html                                                 |
 
 A MarkdownPage is either a markdown file with metadata on top or a json file located in the contents directory.
 
@@ -149,12 +144,13 @@ title: My first post
 date: 2012-12-12 12:12
 author: John Hjort <foo@bar.com>
 template: article.pug
-----
+---
+
+-
 
 # Hello friends!
 
 Life is wonderful, isn't it?
-
 ```
 
 or use json to simply pass metadata to a template:
@@ -163,8 +159,8 @@ or use json to simply pass metadata to a template:
 {
   "template": "template.pug",
   "stuff": {
-  	"things": 123,
-  	"moar": [1, 2, 3]
+    "things": 123,
+    "moar": [1, 2, 3]
   }
 }
 ```
@@ -173,7 +169,7 @@ Pages are by default rendered using the `template` view. This view passes the pa
 
 ### Links
 
-All relative links in the markdown will be resolved correctly when rendering. This means you can just place *image.png* in the same directory and simply include it in your markdown as `![my image](image.png)`
+All relative links in the markdown will be resolved correctly when rendering. This means you can just place _image.png_ in the same directory and simply include it in your markdown as `![my image](image.png)`
 
 This is especially convenient when using a markdown editor (read [Mou](http://mouapp.com/) if you're on a mac).
 
@@ -198,31 +194,38 @@ It works just like you would expect a `require()` call to.
 
 Plugin example:
 
-```coffeescript
-fs = require 'fs'
+```javascript
+const fs = require('node:fs/promises')
 
-module.exports = (env, callback) ->
+module.exports = async function (env) {
+  class SimonSays extends env.ContentPlugin {
+    constructor(filepath, text) {
+      super()
+      this.filepath = filepath
+      this.text = `Simon says: ${text}`
+    }
 
-  class SimonSays extends env.ContentPlugin
+    // Relative to the content directory.
+    getFilename() {
+      return this.filepath.relative
+    }
 
-    constructor: (@filepath, text) ->
-      @text = "Simon says: #{ text }"
+    getView() {
+      return async () => Buffer.from(this.text)
+    }
+  }
 
-    getFilename: -> @filepath.relative # relative to content directory
+  SimonSays.fromFile = async function (filepath) {
+    return new SimonSays(filepath, await fs.readFile(filepath.full, 'utf8'))
+  }
 
-    getView: -> (env, locals, contents, templates, callback) ->
-      callback null, new Buffer @text
-
-  SimonSays.fromFile = (filepath, callback) ->
-    fs.readFile filepath.full, (error, buffer) ->
-      if error
-        callback error
-      else
-        callback null, new SimonSays filepath, buffer.toString()
-
-  env.registerContentPlugin 'text', '**/*.txt', SimonSays
-  callback() # tell the plugin manager we are done
+  env.registerContentPlugin('text', '**/*.txt', SimonSays)
+}
 ```
+
+Plugins may be written as ES modules or CommonJS. Every extension point above
+accepts either an `async` function, as shown, or the callback style used by
+wintersmith 2 — plugins written for wintersmith 2 keep working unchanged.
 
 See the [plugin guide][plugin-guide] for more info.
 
@@ -231,41 +234,45 @@ See the [plugin guide][plugin-guide] for more info.
 example:
 
 ```javascript
+import wintersmith from 'wintersmith'
 
-var wintersmith = require('wintersmith');
+// Create the site's environment. Can also be called with a config object,
+// e.g. {contents: '/some/contents', locals: {powerLevel: 10}}.
+const env = wintersmith('/path/to/my/config.json')
 
-// create the sites environment, can also be called with a config object. e.g.
-// {contents: '/some/contents', locals: {powerLevel: 10}}, ..}
-var env = wintersmith('/path/to/my/config.json');
+// Build the site.
+await env.build()
 
-// build site
-env.build(function(error) {
-  if (error) throw error;
-  console.log('Done!');
-});
+// Preview it.
+const server = await env.preview()
 
-// preview
-env.preview(function(error, server) {
-  if (error) throw error;
-  console.log('Server running!');
-});
-
-// do something with the content tree
-env.load(function(error, result) {
-  if (error) throw error;
-  console.log('Contents loaded!');
-});
-
+// Or do something with the content tree yourself.
+const { contents, templates, locals } = await env.load()
 ```
 
-Check the source or [api docs][docs] for a full list of methods.
+These methods still accept a trailing callback if you have code written
+against wintersmith 2.
+
+Check the source for a full list of methods.
 
 ## Contributing
 
-To run a development that compiles the coffee script files on the fly use the `./bin/dev/cli` command. The chdir `-C <path>` flag is handy for pointing it to a test project to experiment with.
+There is no build step — `src/` is what ships. Run `./bin/wintersmith`
+directly; the `-C <path>` flag points it at a test site to experiment with.
+
+```bash
+$ npm install
+$ npm test          # unit, preview-server and golden-output tests
+$ npm run lint
+$ npm run format
+```
+
+The golden-output tests build three sites and compare the result byte for byte
+against snapshots in `test/golden/`. If you change output on purpose, run
+`npm run test:update` and review the diff. See [test/README.md](test/README.md).
 
 ## About
 
-Wintersmith is written by [Johan Nordberg](http://johan-nordberg.com) using [CoffeeScript](http://coffeescript.org/) and licensed under the [MIT-license](http://en.wikipedia.org/wiki/MIT_License).
+Wintersmith was written by [Johan Nordberg](http://johan-nordberg.com), originally in [CoffeeScript](http://coffeescript.org/), and is licensed under the [MIT-license](http://en.wikipedia.org/wiki/MIT_License). Version 3 is a port to modern JavaScript — see [CHANGES.md](CHANGES.md).
 
 The name is a nod to [blacksmith](https://github.com/flatiron/blacksmith) which inspired this project.

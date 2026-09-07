@@ -5,9 +5,7 @@
     "owner": "Someone",
     "description": "Ramblings of an immor(t)al demigod"
   },
-  "plugins": [
-    "./plugins/paginator.js"
-  ],
+  "plugins": ["./plugins/paginator.js"],
   "require": {
     "moment": "moment",
     "_": "underscore",

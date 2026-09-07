@@ -1,6 +1,12 @@
 /** The configuration object. */
 
-import { dual, fileExists, fileExistsSync, readJSON, readJSONSync } from './utils.js'
+import {
+  dual,
+  fileExists,
+  fileExistsSync,
+  readJSON,
+  readJSONSync,
+} from './utils.js'
 
 export class Config {
   static defaults = {

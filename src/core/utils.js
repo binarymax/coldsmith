@@ -29,14 +29,16 @@ export function dual(promise, callback) {
   if (typeof callback !== 'function') {
     return promise
   }
-  promise.then(
-    (value) => callback(null, value),
-    (error) => callback(error),
-  ).catch((error) => {
-    setImmediate(() => {
-      throw error
+  promise
+    .then(
+      (value) => callback(null, value),
+      (error) => callback(error),
+    )
+    .catch((error) => {
+      setImmediate(() => {
+        throw error
+      })
     })
-  })
   return undefined
 }
 

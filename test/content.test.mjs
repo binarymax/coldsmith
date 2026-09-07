@@ -108,7 +108,9 @@ test('ContentPlugin properties are enumerable, as templates expect', () => {
 test('base classes reject being used without new, but only from the outside', () => {
   // Sanity check that these really are function constructors: an ES class
   // would throw here, and that throw is what breaks legacy plugins.
-  assert.doesNotThrow(() => ContentPlugin.call(Object.create(ContentPlugin.prototype)))
+  assert.doesNotThrow(() =>
+    ContentPlugin.call(Object.create(ContentPlugin.prototype)),
+  )
 })
 
 /* ------------------------------------------------------------------ */
