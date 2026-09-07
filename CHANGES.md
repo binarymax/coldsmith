@@ -6,7 +6,7 @@ kept because coldsmith's code descends from it directly.
 
 ## 1.0.0
 
-_unreleased_
+_2026-09-07_
 
 Forked from wintersmith 2.5.0 and ported to modern JavaScript. The CoffeeScript
 is gone, there is no build step, and the dependency list went from 19 packages
